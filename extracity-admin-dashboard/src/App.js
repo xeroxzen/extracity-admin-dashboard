@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import firebase from "./firebase.config";
+import ReservationInput from "./components/reservations/ReservationInput";
 
 function App() {
   const [reservations, setReservations] = React.useState([]);
@@ -19,7 +20,9 @@ function App() {
       <h1>Extracity</h1>
       <ol>
         {reservations.map((reservation) => (
-          <li key={reservation.ID}>{reservation.fullname}</li>
+          <li key={reservation.ID}>
+            <ReservationInput />
+          </li>
         ))}
       </ol>
     </div>
