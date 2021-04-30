@@ -1,6 +1,6 @@
 import React from "react";
 import firebase from "../../firebase.config";
-import { ReservationInput } from "./ReservationInput";
+import ReservationInput from "./ReservationInput";
 
 export default function ReservationData() {
   //reservation state

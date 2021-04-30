@@ -1,5 +1,5 @@
 import firebase from "firebase"; //firebase/app
-import "firebase/firestore";
+// import "firebase/firestore";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -12,18 +12,6 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_MESSAGING_APP_ID,
   // measurementId: "G-776MMG1FPL",
 };
-
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// const firebaseConfig = {
-//   apiKey: "AIzaSyAZE0XhUYOfAnZkHx9mV2R56xIFrpfBko0",
-//   authDomain: "extracitywebhook.firebaseapp.com",
-//   databaseURL: "https://extracitywebhook.firebaseio.com",
-//   projectId: "extracitywebhook",
-//   storageBucket: "extracitywebhook.appspot.com",
-//   messagingSenderId: "1092492776927",
-//   appId: "1:1092492776927:web:51c38326a035e8722e606a",
-//   measurementId: "G-776MMG1FPL",
-// };
 
 //Initialize Firebase
 firebase.initializeApp(firebaseConfig);
