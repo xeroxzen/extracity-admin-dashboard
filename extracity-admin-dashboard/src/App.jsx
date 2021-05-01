@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 // import firebase from "./firebase.config";
 // import ReservationInput from "./components/reservations/ReservationInput";
-import ReservationData from './components/reservations/ReservationData';
+// import ReservationData from './components/reservations/ReservationData';
 import ReservationTable from './components/reservations/ReservationTable'
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
   return (
     <div>
       <h1>Extracity</h1>
-      <ReservationData />
+      {/* <ReservationData /> */}
       <ReservationTable />
     </div>
   );
