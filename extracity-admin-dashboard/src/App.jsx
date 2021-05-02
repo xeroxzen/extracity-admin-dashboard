@@ -2,7 +2,8 @@ import React from "react";
 import "./App.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import "@fontsource/roboto";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
@@ -20,8 +21,8 @@ const theme = createMuiTheme({
       main: "#0097a7",
     },
     body: {
-      maxWidth: 700,
-      // backgroundColor: "#34495E",
+      maxWidth: 750,
+      backgroundColor: "#34495E",
     },
   },
 });
