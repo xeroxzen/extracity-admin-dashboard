@@ -3,21 +3,15 @@ import "./App.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
-import "@fontsource/roboto";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-
-// import firebase from "./firebase.config";
-// import ReservationInput from "./components/reservations/ReservationInput";
-import ReservationData from './components/reservations/ReservationData';
-import ReservationTable from './components/reservations/ReservationTable'
-// import home from './pages/home/home';
+import PrivateRoute from './PrivateRoute';
 import Reservations from './pages/reservations/Reservations'
+import AddReservation from './pages/reservations/AddReservation';
 import { AuthProvider } from "./contexts/AuthContext";
-import home from "./pages/home/home";
 import { login } from "./pages/accounts/login";
 import { register } from "./pages/accounts/register";
-import PrivateRoute from './PrivateRoute';
+import Home from "./pages/home/home";
+import "@fontsource/roboto";
 
 const theme = createMuiTheme({
   palette: {
@@ -61,13 +55,13 @@ function App() {
           <Container>
             <ThemeProvider theme={theme}>
               <div className={classes.body}>
-                <PrivateRoute exact path="/" component={home} />
+                <PrivateRoute exact path="/" component={Home} />
                 <PrivateRoute exact path='/reservations' component={Reservations} />
                 <PrivateRoute exact path='/add-reservation' component={AddReservation} />
               </div>
               <div>
                 <Route exact path='/login' component={login} />
-                <Route exact path='register' component='login' />
+                <Route exact path='/register' component={register} />
               </div>
             </ThemeProvider>
           </Container>

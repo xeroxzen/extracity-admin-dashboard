@@ -9,7 +9,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import IconButton from "@material-ui/core/IconButton";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import { useHistory } from "react-router-dom";
-// import { useAuth } from "../../contexts/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
 import Link from "@material-ui/core/Link";
 import { Alert } from "react-bootstrap";
 
@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Header() {
     const classes = useStyles();
     const [error, setError] = React.useState();
-    // const { currentUser, logout } = useAuth();
+    const { currentUser, logout } = useAuth();
     const history = useHistory();
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -64,16 +64,16 @@ export default function Header() {
         setAnchorEl(null);
     };
 
-    // async function handleLogout() {
-    //     setError("");
+    async function handleLogout() {
+        setError("");
 
-    //     try {
-    //         await logout();
-    //         history.push("/login");
-    //     } catch {
-    //         setError("Failed to log out");
-    //     }
-    // }
+        try {
+            await logout();
+            history.push("/login");
+        } catch {
+            setError("Failed to log out");
+        }
+    }
 
     return (
         <div className={classes.root}>
@@ -99,7 +99,7 @@ export default function Header() {
                         className={classes.dropdownTitle}
                         endIcon={<ExpandMore />}
                     >
-                        {/* {currentUser.email} */}
+                        {currentUser.email}
                     </Button>
                     <Menu
                         id="simple-menu"
@@ -118,7 +118,7 @@ export default function Header() {
             </MenuItem>
                         <MenuItem
                             component={Link}
-                            // onClick={handleLogout}
+                            onClick={handleLogout}
                             href="/logout"
                             style={{ color: "white", textDecoration: "none" }}
                         >

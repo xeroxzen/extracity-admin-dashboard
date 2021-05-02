@@ -9,7 +9,7 @@ export function useAuth() {
   return React.useContext(AuthContext);
 }
 
-export default function AuthProvider({ children }) {
+export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = React.useState();
   const [loading, setLoading] = React.useState(true);
 
@@ -47,3 +47,5 @@ export default function AuthProvider({ children }) {
     </AuthContext.Provider>
   );
 }
+
+// export default AuthProvider;

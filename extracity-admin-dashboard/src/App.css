@@ -38,15 +38,15 @@
 } */
 
 body {
-  background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+  background-image: linear-gradient(to right, #ff758c 0%, #ff7eb3 100%);
   /* background-color: #1a5276; */
 }
 
 .App {
   text-align: left;
-  margin-top: 68px;
-  margin-left: 250px;
-  margin-right: 10px;
+  /* margin-top: 68px; */
+  /* margin-left: 250px; */
+  /* margin-right: 10px; */
 }
 
 .App-logo {
