@@ -56,7 +56,7 @@ function App() {
             <div className={classes.body}>
               {/* <ReservationData /> */}
               {/* <ReservationTable /> */}
-              <ReservationData />
+              {/* <ReservationData /> */}
               <Reservations />
             </div>
           </ThemeProvider>

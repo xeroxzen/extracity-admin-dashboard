@@ -283,14 +283,17 @@ export default function ReservationTable() {
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(20);
+  //reservation state
   const [reservations, setReservations] = React.useState([]);
 
-  const fetchReservations = async () => {
-    const db = firebase.firestore();
-    const data = await db.collection("reservations").get();
-    setReservations(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  };
-  fetchReservations();
+  React.useEffect(() => {
+    const fetchReservations = async () => {
+      const db = firebase.firestore();
+      const data = await db.collection("reservations").get();
+      setReservations(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    fetchReservations();
+  }, []);
 
   // React.useEffect(() => {
   //   fetchReservations();
@@ -402,31 +405,33 @@ export default function ReservationTable() {
                         {reservation.fullname}
                       </TableCell>
                       <TableCell align="right">
-                        {reservation.phoneNumber}
+                        {reservation.PhoneNumber}
                       </TableCell>
-                      <TableCell align="right">{reservation.trip}</TableCell>
+                      <TableCell align="right">{reservation.Trip}</TableCell>
                       {/* <TableCell align="right">
                         {reservation.mobileMoneyAccount}
                       </TableCell> */}
                       <TableCell align="right">
-                        {moment(reservation.Date).format("LLL")}
+                        {moment(reservation.Date.toDate(), "YYYY-MM-DD").format(
+                          "LLL"
+                        )}
                       </TableCell>
                       {/* moment().format('MMMM Do YYYY, h:mm:ss a'); */}
                       <TableCell align="right">
-                        {reservation.travelTime}
+                        {reservation.TravelTime}
                       </TableCell>
-                      <TableCell align="right">{reservation.email}</TableCell>
+                      <TableCell align="right">{reservation.Email}</TableCell>
                       <TableCell align="right">
-                        $ {reservation.amount}
-                      </TableCell>
-                      <TableCell align="right">
-                        {reservation.paymentMethod}
+                        $ {reservation.Amount}
                       </TableCell>
                       <TableCell align="right">
-                        {reservation.mobileMoneyAccount}
+                        {reservation.PaymentMethod}
                       </TableCell>
                       <TableCell align="right">
-                        {reservation.ticketId}
+                        {reservation.MobileMoneyAccount}
+                      </TableCell>
+                      <TableCell align="right">
+                        {reservation.TicketID}
                       </TableCell>
                     </TableRow>
                   );
@@ -440,7 +445,7 @@ export default function ReservationTable() {
           </Table>
         </TableContainer>
         <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
+          rowsPerPageOptions={[5, 10, 20]}
           component="div"
           count={reservations.length}
           rowsPerPage={rowsPerPage}
