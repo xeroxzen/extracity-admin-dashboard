@@ -13,6 +13,10 @@ import ReservationData from './components/reservations/ReservationData';
 import ReservationTable from './components/reservations/ReservationTable'
 // import home from './pages/home/home';
 import Reservations from './pages/reservations/reservations'
+import { AuthProvider } from "./contexts/AuthContext";
+import home from "./pages/home/home";
+import { login } from "./pages/accounts/login";
+import { register } from "./pages/accounts/register";
 
 const theme = createMuiTheme({
   palette: {
@@ -50,19 +54,22 @@ function App() {
   const classes = useStyles();
 
   return (
-    <Router>
-      <Switch>
-        <Container>
-          <ThemeProvider theme={theme}>
-            <div className={classes.body}>
-              {/* <ReservationTable /> */}
-              {/* <ReservationData /> */}
-              <Reservations />
-            </div>
-          </ThemeProvider>
-        </Container>
-      </Switch>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Switch>
+          <Container>
+            <ThemeProvider theme={theme}>
+              <div className={classes.body}>
+                {/* <ReservationTable /> */}
+                {/* <ReservationData /> */}
+                <Reservations />
+              </div>
+            </ThemeProvider>
+          </Container>
+        </Switch>
+      </Router>
+    </AuthProvider>
+
 
   );
 }
