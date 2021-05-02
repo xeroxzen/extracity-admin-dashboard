@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
         // textAlign: "center",
     },
     body: {
-        backgroundColor: "#34495E",
+        backgroundColor: "#ad1457",
         width: `calc(100% - ${drawerWidth}px)`,
     },
     LogoutButton: {

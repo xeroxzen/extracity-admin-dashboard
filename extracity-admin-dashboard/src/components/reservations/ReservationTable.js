@@ -98,8 +98,8 @@ const headCells = [
     disablePadding: true,
     label: "Fullname",
   },
-  { id: "phone", numeric: true, disablePadding: false, label: "Phone #" },
-  { id: "trip", numeric: true, disablePadding: false, label: "Trip" },
+  { id: "phone", numeric: true, disablePadding: true, label: "Phone #" },
+  { id: "trip", numeric: true, disablePadding: true, label: "Trip" },
   { id: "date", numeric: true, disablePadding: false, label: "Date" },
   { id: "time", numeric: true, disablePadding: false, label: "Time" },
   { id: "email", numeric: true, disablePadding: false, label: "Email" },
@@ -141,7 +141,7 @@ function EnhancedTableHead(props) {
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
             onChange={onSelectAllClick}
-            inputProps={{ "aria-label": "select all desserts" }}
+            inputProps={{ "aria-label": "select all reservations" }}
           />
         </TableCell>
         {headCells.map((headCell) => (
@@ -260,7 +260,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
   table: {
-    minWidth: 750,
+    minWidth: 950, //750 initially
   },
   visuallyHidden: {
     border: 0,
@@ -282,7 +282,7 @@ export default function ReservationTable() {
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rowsPerPage, setRowsPerPage] = React.useState(20);
   const [reservations, setReservations] = React.useState([]);
 
   const fetchReservations = async () => {
@@ -336,7 +336,7 @@ export default function ReservationTable() {
   };
 
   const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
+    setRowsPerPage(parseInt(event.target.value, 20));
     setPage(0);
   };
 

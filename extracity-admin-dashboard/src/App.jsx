@@ -9,18 +9,24 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 // import firebase from "./firebase.config";
 // import ReservationInput from "./components/reservations/ReservationInput";
-// import ReservationData from './components/reservations/ReservationData';
+import ReservationData from './components/reservations/ReservationData';
 import ReservationTable from './components/reservations/ReservationTable'
-import home from './pages/home/home';
+// import home from './pages/home/home';
 import Reservations from './pages/reservations/reservations'
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#34495E",
+      main: "#ff3d00",
+      dark: '#002884',
+      contrastText: '#fff',
+      light: '#757ce8',
     },
     secondary: {
-      main: "#0097a7",
+      light: '#ff7961',
+      main: "#ff4569",
+      dark: '#ba000d',
+      contrastText: '#000',
     },
     body: {
       maxWidth: 750,
@@ -29,7 +35,7 @@ const theme = createMuiTheme({
   },
 });
 
-const drawerWidth = 240;
+const drawerWidth = 300;
 
 const useStyles = makeStyles((theme) => ({
   body: {
@@ -48,9 +54,9 @@ function App() {
         <Container>
           <ThemeProvider theme={theme}>
             <div className={classes.body}>
-              <h1>Extracity</h1>
               {/* <ReservationData /> */}
               {/* <ReservationTable /> */}
+              <ReservationData />
               <Reservations />
             </div>
           </ThemeProvider>

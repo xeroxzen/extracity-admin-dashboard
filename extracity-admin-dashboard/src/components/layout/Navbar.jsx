@@ -9,7 +9,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import HomeIcon from "@material-ui/icons/Home";
 import ExploreIcon from '@material-ui/icons/Explore';
 import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
-import WbIncandescent from "@material-ui/icons/WbIncandescent";
+import AirlineSeatReclineNormalSharpIcon from '@material-ui/icons/AirlineSeatReclineNormalSharp';
+import AssessmentIcon from '@material-ui/icons/Assessment';
 // import ThumbDown from "@material-ui/icons/ThumbDown";
 import Header from "../header/Header";
 // import pagesList from "../nav/pagesList";
@@ -31,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     },
     drawerPaper: {
         width: drawerWidth,
-        backgroundColor: "#34495E",
+        backgroundColor: "#880e4f",
         color: "white",
         onMouseOver: "blue",
     },
@@ -69,25 +70,26 @@ export default function Navbar() {
                 <List component="nav" aria-label="secondary mailbox folders">
                     <ListItemLink href="/">
                         <ListItemIcon>
-                            <HomeIcon color="secondary" fontSize="large" />
+                            <HomeIcon color="primary" />
                         </ListItemIcon>
-                        <ListItemText primary="Extracity Reservation Dashboard" />
+                        <ListItemText primary="Home" />
                     </ListItemLink>
+                    <Divider />
 
                     <ListItemLink href="/reservations">
                         <ListItemIcon>
-                            <ExploreIcon color="secondary" />
+                            <ExploreIcon color="primary" />
                         </ListItemIcon>
                         <ListItemText primary="Reservations" />
                     </ListItemLink>
                     <Divider />
 
-                    {/* <ListItemLink href="/recommendations">
+                    <ListItemLink href="/add-reservation">
                         <ListItemIcon>
-                            <WbIncandescent color="secondary" />
+                            <AirlineSeatReclineNormalSharpIcon color="primary" />
                         </ListItemIcon>
-                        <ListItemText primary="Recommendations" />
-                    </ListItemLink> */}
+                        <ListItemText primary="Add Reservation" />
+                    </ListItemLink>
 
                     {/* <ListItemLink href="/complaints">
                         <ListItemIcon>
@@ -100,14 +102,15 @@ export default function Navbar() {
 
                     <ListItemLink href="/statistics">
                         <ListItemIcon>
-                            <WbIncandescent color="secondary" />
+                            <AssessmentIcon color="primary" />
                         </ListItemIcon>
                         <ListItemText primary="Statistics" />
                     </ListItemLink>
+                    <Divider />
 
                     <ListItemLink href="/payments">
                         <ListItemIcon>
-                            <MonetizationOnIcon color="secondary" />
+                            <MonetizationOnIcon color="primary" />
                         </ListItemIcon>
                         <ListItemText primary="Payments" />
                     </ListItemLink>
