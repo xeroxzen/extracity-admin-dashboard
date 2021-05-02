@@ -23,7 +23,7 @@ const ReservationInput = ({ booking }) => {
     const [trip, setTrip] = React.useState(booking.Trip);
     const [firstname, setFirstname] = React.useState(booking.firstName);
     const [lastname, setLastname] = React.useState(booking.lastName);
-    const [pollUrl, setPollUrl] = React.useState(booking.pollURL);
+    // const [pollUrl, setPollUrl] = React.useState(booking.pollURL);
     //   const [paymentStatus, setPaymentStatus] = React.useState(booking.status);
 
     const onUpdate = () => {
@@ -47,7 +47,7 @@ const ReservationInput = ({ booking }) => {
                 trip,
                 firstname,
                 lastname,
-                pollUrl,
+                // pollUrl,
                 // paymentStatus,
             });
     };
@@ -99,6 +99,70 @@ const ReservationInput = ({ booking }) => {
                 value={date}
                 onChange={(e) => {
                     setDate(e.target.value);
+                }}
+            />
+            {/* Phone Number */}
+            <input
+                value={phoneNumber}
+                onChange={(e) => {
+                    setPhoneNumber(e.target.value);
+                }}
+            />
+
+            {/* Mobile Money Account */}
+            <input
+                value={mobileMoneyAccount}
+                onChange={(e) => {
+                    setMobileMoneyAccount(e.target.value);
+                }}
+            />
+            {/* Payment Method */}
+            <input
+                value={paymentMethod}
+                onChange={(e) => {
+                    setPaymentMethod(e.target.value);
+                }}
+            />
+            {/* Ticket Id */}
+            <input
+                value={ticketId}
+                onChange={(e) => {
+                    setTicketId(e.target.value);
+                }}
+            />
+            {/* Travel Time */}
+            <input
+                value={travelTime}
+                onChange={(e) => {
+                    setTravelTime(e.target.value);
+                }}
+            />
+            {/* traveling from */}
+            <input
+                value={travellingFrom}
+                onChange={(e) => {
+                    setTravellingFrom(e.target.value);
+                }}
+            />
+            {/* travelling to */}
+            <input
+                value={travellingTo}
+                onChange={(e) => {
+                    setTravellingTo(e.target.value);
+                }}
+            />
+            {/* first name */}
+            <input
+                value={firstname}
+                onChange={(e) => {
+                    setFirstname(e.target.value);
+                }}
+            />
+            {/* last name */}
+            <input
+                value={lastname}
+                onChange={(e) => {
+                    setLastname(e.target.value);
                 }}
             />
             {/* Phone Number */}

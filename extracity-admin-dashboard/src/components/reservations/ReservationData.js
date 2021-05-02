@@ -5,6 +5,7 @@ import ReservationInput from "./ReservationInput";
 export default function ReservationData() {
   //reservation state
   const [reservations, setReservations] = React.useState([]);
+  const [newReservation, setNewReservation] = React.useState();
 
   React.useEffect(() => {
     const fetchReservations = async () => {
@@ -15,9 +16,19 @@ export default function ReservationData() {
     fetchReservations();
   }, []);
 
+  const onCreate = () => {
+    const db = firebase.firestore();
+    db.collection("reservations").add({ name: newReservation });
+  };
+
   return (
     <div>
       <ol>
+        <input
+          value={newReservation}
+          onChange={(e) => setNewReservation(e.target.value)}
+        />
+        <button onClick={onCreate}>Create</button>
         {reservations.map((reservation) => (
           <li key={reservation.id}>
             <ReservationInput booking={reservation} />
