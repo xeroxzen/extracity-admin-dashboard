@@ -29,19 +29,20 @@ const theme = createMuiTheme({
       contrastText: '#000',
     },
     body: {
-      maxWidth: 750,
+      maxWidth: "100%",
       backgroundColor: "#34495E",
     },
   },
 });
 
-const drawerWidth = 300;
+const drawerWidth = 80;
 
 const useStyles = makeStyles((theme) => ({
   body: {
-    width: `calc(100% - ${drawerWidth}px)`,
+    width: "105%",
     marginLeft: drawerWidth,
-    marginTop: "68px",
+    // width: `calc(100% - ${drawerWidth}px)`,
+    marginTop: "70px",
   },
 }));
 

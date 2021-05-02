@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
         width: drawerWidth,
         backgroundColor: "#880e4f",
         color: "white",
-        onMouseOver: "blue",
+        onMouseOver: "green",
     },
     // necessary for content to be below app bar
     toolbar: theme.mixins.toolbar,

@@ -96,27 +96,27 @@ const headCells = [
     id: "fullname",
     numeric: false,
     disablePadding: true,
-    label: "Fullname",
+    label: "FULLNAME",
   },
-  { id: "phone", numeric: true, disablePadding: true, label: "Phone #" },
-  { id: "trip", numeric: true, disablePadding: true, label: "Trip" },
-  { id: "date", numeric: true, disablePadding: false, label: "Date" },
-  { id: "time", numeric: true, disablePadding: false, label: "Time" },
-  { id: "email", numeric: true, disablePadding: false, label: "Email" },
-  { id: "amount", numeric: true, disablePadding: false, label: "Amount in $" },
+  { id: "phone", numeric: true, disablePadding: true, label: "PHONE #" },
+  { id: "trip", numeric: true, disablePadding: true, label: "TRIP" },
+  { id: "date", numeric: true, disablePadding: false, label: "DATE" },
+  { id: "time", numeric: true, disablePadding: false, label: "TIME" },
+  { id: "email", numeric: true, disablePadding: false, label: "EMAIL" },
+  { id: "amount", numeric: true, disablePadding: false, label: "AMOUNT" },
   {
     id: "payment",
     numeric: true,
     disablePadding: false,
-    label: "Payment Method",
+    label: "PAYMENT METHOD",
   },
   {
     id: "payer",
     numeric: true,
     disablePadding: false,
-    label: "Payment Account",
+    label: "PAYMENT ACCOUNT",
   },
-  { id: "ticketId", numeric: true, disablePadding: false, label: "Ticket ID" },
+  { id: "ticketId", numeric: true, disablePadding: false, label: "TICKET ID" },
 ];
 
 function EnhancedTableHead(props) {
@@ -186,7 +186,7 @@ const useToolbarStyles = makeStyles((theme) => ({
     paddingRight: theme.spacing(1),
   },
   highlight:
-    theme.palette.type === "light"
+    theme.palette.type === "dark" //initially light
       ? {
           color: theme.palette.secondary.main,
           backgroundColor: lighten(theme.palette.secondary.light, 0.85),
@@ -222,7 +222,7 @@ const EnhancedTableToolbar = (props) => {
       ) : (
         <Typography
           className={classes.title}
-          variant="h6"
+          variant="h5"
           id="tableTitle"
           component="div"
         >
@@ -251,6 +251,8 @@ EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
 };
 
+const drawerWidth = 300;
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
@@ -260,7 +262,8 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
   table: {
-    minWidth: 950, //750 initially
+    minWidth: 750, //750 initially
+    width: `calc(100% - ${drawerWidth}px)`,
   },
   visuallyHidden: {
     border: 0,
@@ -408,9 +411,6 @@ export default function ReservationTable() {
                         {reservation.PhoneNumber}
                       </TableCell>
                       <TableCell align="right">{reservation.Trip}</TableCell>
-                      {/* <TableCell align="right">
-                        {reservation.mobileMoneyAccount}
-                      </TableCell> */}
                       <TableCell align="right">
                         {moment(reservation.Date.toDate(), "YYYY-MM-DD").format(
                           "LLL"
