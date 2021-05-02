@@ -12,11 +12,12 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import ReservationData from './components/reservations/ReservationData';
 import ReservationTable from './components/reservations/ReservationTable'
 // import home from './pages/home/home';
-import Reservations from './pages/reservations/reservations'
+import Reservations from './pages/reservations/Reservations'
 import { AuthProvider } from "./contexts/AuthContext";
 import home from "./pages/home/home";
 import { login } from "./pages/accounts/login";
 import { register } from "./pages/accounts/register";
+import PrivateRoute from './PrivateRoute';
 
 const theme = createMuiTheme({
   palette: {
@@ -60,9 +61,13 @@ function App() {
           <Container>
             <ThemeProvider theme={theme}>
               <div className={classes.body}>
-                {/* <ReservationTable /> */}
-                {/* <ReservationData /> */}
-                <Reservations />
+                <PrivateRoute exact path="/" component={home} />
+                <PrivateRoute exact path='/reservations' component={Reservations} />
+                <PrivateRoute exact path='/add-reservation' component={AddReservation} />
+              </div>
+              <div>
+                <Route exact path='/login' component={login} />
+                <Route exact path='register' component='login' />
               </div>
             </ThemeProvider>
           </Container>
