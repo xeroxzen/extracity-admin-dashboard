@@ -34,13 +34,13 @@ const theme = createMuiTheme({
   },
 });
 
-const drawerWidth = 80;
+const drawerWidth = 200;
 
 const useStyles = makeStyles((theme) => ({
   body: {
-    width: "105%",
+    // width: "100%",
     marginLeft: drawerWidth,
-    // width: `calc(100% - ${drawerWidth}px)`,
+    width: `calc(100% - ${drawerWidth}px)`,
     marginTop: "70px",
   },
 }));
