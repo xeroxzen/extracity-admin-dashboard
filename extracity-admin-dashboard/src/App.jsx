@@ -34,7 +34,7 @@ const theme = createMuiTheme({
   },
 });
 
-const drawerWidth = 200;
+// const drawerWidth = 200;
 
 const useStyles = makeStyles((theme) => ({
   body: {
@@ -42,6 +42,12 @@ const useStyles = makeStyles((theme) => ({
     // marginLeft: drawerWidth,
     // width: `calc(100% - ${drawerWidth}px)`,
     marginTop: "70px",
+    display: 'flex',
+    alignItems: 'center',
+    padding: theme.spacing(0, 1),
+    // necessary for content to be below app bar
+    ...theme.mixins.toolbar,
+    justifyContent: 'flex-end',
   },
 }));
 
@@ -52,7 +58,7 @@ function App() {
     <AuthProvider>
       <Router>
         <Switch>
-          <Container>
+          <Container className={classes.contentShift}>
             <ThemeProvider theme={theme}>
               <div className={classes.body}>
                 <PrivateRoute exact path="/" component={Home} />
