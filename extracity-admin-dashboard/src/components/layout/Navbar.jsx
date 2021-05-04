@@ -91,13 +91,6 @@ export default function Navbar() {
                         <ListItemText primary="Add Reservation" />
                     </ListItemLink>
 
-                    {/* <ListItemLink href="/complaints">
-                        <ListItemIcon>
-                            <ThumbDown color="secondary" />
-                        </ListItemIcon>
-                        <ListItemText primary="Complaints" />
-                    </ListItemLink> */}
-
                     <Divider />
 
                     <ListItemLink href="/statistics">
