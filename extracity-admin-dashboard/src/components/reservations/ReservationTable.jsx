@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
-import { lighten, makeStyles } from "@material-ui/core/styles";
+import { darken, lighten, makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -184,12 +184,14 @@ const useToolbarStyles = makeStyles((theme) => ({
   root: {
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(1),
+    backgroundColor: theme.palette.primary.dark
   },
   highlight:
-    theme.palette.type === "dark" //initially light
+    theme.palette.type === "light" //initially light
       ? {
-        color: theme.palette.secondary.main,
+        color: theme.palette.primary.main,
         backgroundColor: lighten(theme.palette.secondary.light, 0.85),
+        // backgroundColor: darken(theme.palette.primary.dark, 0.85),
       }
       : {
         color: theme.palette.text.primary,
@@ -197,6 +199,9 @@ const useToolbarStyles = makeStyles((theme) => ({
       },
   title: {
     flex: "1 1 100%",
+  },
+  body: {
+    backgroundColor: theme.palette.secondary.dark,
   },
 }));
 
@@ -360,7 +365,7 @@ export default function ReservationTable() {
     <div className={classes.root}>
       <Paper className={classes.paper}>
         <EnhancedTableToolbar numSelected={selected.length} />
-        <TableContainer>
+        <TableContainer className={classes.body}>
           <Table
             className={classes.table}
             aria-labelledby="tableTitle"
