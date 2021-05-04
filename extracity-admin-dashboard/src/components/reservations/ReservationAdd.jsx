@@ -3,7 +3,7 @@ import React from 'react'
 export default function ReservationAdd() {
     return (
         <div>
-            <p>We'll add something here</p>
+            <p>We should have something here up soon</p>
         </div>
     )
 }
