@@ -1,7 +1,16 @@
 import * as React from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import firebase from "../../firebase.config";
+import { makeStyles } from "@material-ui/core/styles";
 import moment from 'moment'
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        height: 400,
+        width: '100%',
+        marginTop: 70,
+    },
+}));
 
 const headCells = [
     // { field: 'id', headerName: 'ID', width: 70 },
@@ -38,6 +47,7 @@ const headCells = [
 ]
 
 export default function DataTable() {
+    const classes = useStyles();
     const [reservations, setReservations] = React.useState([]);
 
     React.useState(() => {
@@ -49,7 +59,8 @@ export default function DataTable() {
         fetchReservations();
     }, []);
     return (
-        <div style={{ height: 400, width: '100%' }}>
+        // style={{ height: 400, width: '100%', marginTop: 70, }}
+        <div className={classes.root}>
             <DataGrid rows={reservations} columns={headCells} pageSize={5} checkboxSelection />
         </div>
     );

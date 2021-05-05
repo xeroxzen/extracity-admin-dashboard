@@ -8,7 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        marginTop: "20px",
+        marginTop: "100px",
         marginBottom: "10px",
         backgroundColor: "#ad1457",
     },
@@ -18,7 +18,7 @@ export default function Footer() {
     const classes = useStyles();
 
     return (
-        <AppBar className={classes.root} position="static" color="primary">
+        <AppBar className={classes.root} position="relative" color="primary">
             <Container maxWidth="md">
                 <Toolbar>
                     <Typography variant="body1" color="inherit">

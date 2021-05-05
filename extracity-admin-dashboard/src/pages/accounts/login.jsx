@@ -12,8 +12,8 @@ export default function login() {
                 className="w-100"
                 style={{ maxWidth: "350px", alignItems: "center" }}
             >
-                <Login />;
-      </div>
+                <Login />
+            </div>
         </Container>
     );
 }
