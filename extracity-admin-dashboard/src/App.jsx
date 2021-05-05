@@ -40,7 +40,7 @@ const theme = createMuiTheme({
 const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: 80,
-    fontSize: 12,
+    fontSize: 13,
     width: '100%',
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
