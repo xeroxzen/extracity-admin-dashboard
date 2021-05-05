@@ -191,7 +191,7 @@ const useToolbarStyles = makeStyles((theme) => ({
       ? {
         color: theme.palette.primary.main,
         backgroundColor: lighten(theme.palette.secondary.light, 0.85),
-        // backgroundColor: darken(theme.palette.primary.dark, 0.85),
+        backgroundColor: darken(theme.palette.primary.dark, 0.25),
       }
       : {
         color: theme.palette.text.primary,

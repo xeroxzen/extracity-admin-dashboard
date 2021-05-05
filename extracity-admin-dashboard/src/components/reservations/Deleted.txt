@@ -1,0 +1,161 @@
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Input from '@material-ui/core/Input'
+import { Button, Container } from '@material-ui/core';
+import Icon from '@material-ui/core/Icon';
+import { blue } from '@material-ui/core/colors';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+    },
+    textField: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        width: '25ch',
+        fontSize: 12,
+    },
+    button: {
+        margin: theme.spacing(1),
+    },
+    inputField: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        width: '25ch',
+    },
+    h3: {
+        color: 'red',
+        marginBottom: 20,
+        display: 'flex',
+    }
+}));
+
+export default function LayoutTextFields() {
+    const classes = useStyles();
+
+    return (
+        <Container className={classes.root}> {/* Initially a div*/}
+            {/* <p className={classes.h3}>
+                <h3>Reservations for Walk-In Clients</h3>
+            </p> */}
+            <div>
+                <br />
+                {/* First Row */}
+                <Input
+                    // label="Dense"
+                    id="margin-dense"
+                    placeholder="Andile"
+                    className={classes.textField}
+                    formControl='.Multi-colorSecondary'
+                    type="string"
+                    helperText="First name"
+                    margin="dense"
+                />
+                <TextField
+                    // label="Dense"
+                    id="margin-dense"
+                    placeholder="Mbele"
+                    className={classes.textField}
+                    helperText="Last name"
+                    margin="normal"
+                />
+                <TextField
+                    // label="Dense"
+                    id="margin-dense"
+                    placeholder="+263 77 266 7958"
+                    className={classes.textField}
+                    helperText="Phone Number"
+                    margin="normal"
+                />
+                <TextField
+                    // label="Dense"
+                    id="margin-dense"
+                    placeholder="eulithamubvumbi@yahoo.co.uk"
+                    fontSize={10}
+                    className={classes.textField}
+                    helperText="Email Address"
+                    margin="normal"
+                />
+            </div>
+            <div>
+                {/* Second Row */}
+                <TextField
+                    // label="Dense"
+                    id="margin-dense"
+                    placeholder="Andile"
+                    className={classes.textField}
+                    helperText="First name"
+                    margin="normal"
+                />
+                <TextField
+                    // label="Dense"
+                    id="margin-dense"
+                    placeholder="+263 71 043 1790"
+                    className={classes.textField}
+                    helperText="Payer's Account"
+                    margin="normal"
+                />
+                <TextField
+                    // label="Dense"
+                    id="margin-dense"
+                    placeholder="Morning Bus"
+                    className={classes.textField}
+                    helperText="Departure Time"
+                    margin="normal"
+                />
+                <TextField
+                    // label="Dense"
+                    id="margin-dense"
+                    placeholder="17-12-2021"
+                    className={classes.textField}
+                    helperText="Date of Travel"
+                    margin="normal"
+                />
+            </div>
+            <div>
+                {/* Third Row */}
+                <TextField
+                    // label="Dense"
+                    id="margin-dense"
+                    placeholder="Victoria Falls"
+                    className={classes.textField}
+                    helperText="Departure Point"
+                    margin="normal"
+                />
+                <TextField
+                    // label="Dense"
+                    id="margin-dense"
+                    placeholder="Harare"
+                    className={classes.textField}
+                    helperText="Arrival Point"
+                    margin="normal"
+                />
+                <TextField
+                    // label="Dense"
+                    id="margin-dense"
+                    placeholder="$2,500"
+                    className={classes.textField}
+                    helperText="Amount"
+                    margin="normal"
+                />
+                <TextField
+                    // label="Dense"
+                    id="margin-dense"
+                    placeholder="OneMoney"
+                    fontSize={10}
+                    className={classes.textField}
+                    helperText="Payment Method"
+                    margin="normal"
+                />
+                <br />
+                <br />
+                <Button
+                    variant="contained"
+                    color="primary"
+                    className={classes.button}>Submit</Button>
+            </div>
+        </Container >
+    );
+}

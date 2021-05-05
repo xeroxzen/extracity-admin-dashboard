@@ -3,7 +3,7 @@ import React from "react";
 // import Home from "../../components/home/Home";
 import Footer from "../../components/layout/Footer";
 import { Container } from "react-bootstrap";
-import ReservationTable from "../../components/reservations/ReservationTable";
+// import ReservationTable from "../../components/reservations/ReservationTable";
 import Sidebar from "../../components/layout/Sidebar";
 import DataGrid from '../../components/reservations/DataGrid'
 
