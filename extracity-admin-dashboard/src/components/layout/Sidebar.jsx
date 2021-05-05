@@ -87,7 +87,7 @@ function ListItemLink(props) {
     return <ListItem button component="a" {...props} />;
 }
 
-export default function PersistentDrawerLeft() {
+export default function Sidebar() {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
