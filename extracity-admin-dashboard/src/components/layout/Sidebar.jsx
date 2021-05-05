@@ -20,6 +20,15 @@ import ExploreIcon from '@material-ui/icons/Explore';
 import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
 import AirlineSeatReclineNormalSharpIcon from '@material-ui/icons/AirlineSeatReclineNormalSharp';
 import AssessmentIcon from '@material-ui/icons/Assessment';
+import { useHistory } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
+import { Alert } from "react-bootstrap";
+import Link from "@material-ui/core/Link";
+import ExpandMore from "@material-ui/icons/ExpandMore";
+import Button from "@material-ui/core/Button";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import { ArrowRightTwoTone } from '@material-ui/icons';
 
 const drawerWidth = 240;
 
@@ -82,6 +91,24 @@ const useStyles = makeStyles((theme) => ({
         }),
         marginLeft: 0,
     },
+    LogoutButton: {
+        color: "#F7F9F9",
+        backgroundColor: "#E74C3C",
+    },
+    profileButton: {
+        backgroundColor: "#2874A6",
+        color: "#F7F9F9",
+    },
+    dropdownTitle: {
+        color: "red",
+
+    },
+    dropDownMenu: {
+        "& .MuiPaper-root": {
+            backgroundColor: "#34495e",
+            color: "#fff",
+        },
+    },
 }));
 
 function ListItemLink(props) {
@@ -92,6 +119,10 @@ export default function Sidebar() {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
+    const [error, setError] = React.useState();
+    const { currentUser, logout } = useAuth();
+    const history = useHistory();
+    const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -101,8 +132,28 @@ export default function Sidebar() {
         setOpen(false);
     };
 
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    async function handleLogout() {
+        setError("");
+
+        try {
+            await logout();
+            history.push("/login");
+        } catch {
+            setError("Failed to log out");
+        }
+    }
+
     return (
         <div className={classes.root}>
+            {error && <Alert variant="danger">{error}</Alert>}
             <CssBaseline />
             <AppBar
                 position="fixed"
@@ -123,6 +174,39 @@ export default function Sidebar() {
                     <Typography variant="h6" noWrap>
                         Extracity Dashboard
           </Typography>
+                    <Button
+                        aria-controls="simple-menu"
+                        aria-haspopup="true"
+                        onClick={handleClick}
+                        className={classes.dropdownTitle}
+                        endIcon={<ExpandMore />}
+                    >
+                        {currentUser.email}
+                    </Button>
+                    <Menu
+                        id="simple-menu"
+                        anchorEl={anchorEl}
+                        keepMounted
+                        open={Boolean(anchorEl)}
+                        onClose={handleClose}
+                        className={classes.dropDownMenu}
+                    >
+                        <MenuItem
+                            component={Link}
+                            href="/update-profile"
+                            style={{ color: "black", textDecoration: "none" }}
+                        >
+                            Update profile
+                     </MenuItem>
+                        <MenuItem
+                            component={Link}
+                            onClick={handleLogout}
+                            href="/logout"
+                            style={{ color: "red", textDecoration: "none" }}
+                        >
+                            Logout
+                        </MenuItem>
+                    </Menu>
                 </Toolbar>
             </AppBar>
             <Drawer
