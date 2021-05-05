@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         height: 400,
         width: '100%',
-        marginTop: 70,
+        // marginTop: 70,
     },
 }));
 
@@ -18,7 +18,7 @@ const headCells = [
     // { field: 'lastName', headerName: 'Last name', width: 130 },
     {
         field: "fullname",
-        headerName: "Full name",
+        headerName: "FULL NAME",
         description: 'This column has a value',
         sortable: false,
         width: 160,
@@ -61,7 +61,8 @@ export default function DataTable() {
     return (
         // style={{ height: 400, width: '100%', marginTop: 70, }}
         <div className={classes.root}>
-            <DataGrid rows={reservations} columns={headCells} pageSize={5} checkboxSelection />
+            <h3 style={{ marginBottom: 20, }}>Ticket Reservation list</h3>
+            <DataGrid rows={reservations} columns={headCells} checkboxSelection />
         </div>
     );
 }

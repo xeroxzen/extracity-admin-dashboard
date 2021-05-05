@@ -30,6 +30,7 @@ const theme = createMuiTheme({
     body: {
       maxWidth: "100%",
       backgroundColor: "#34495E",
+      fontFamily: 'Roboto',
     },
   },
 });
@@ -37,7 +38,13 @@ const theme = createMuiTheme({
 // const drawerWidth = 200;
 
 const useStyles = makeStyles((theme) => ({
-
+  root: {
+    marginTop: 80,
+    fontSize: 12,
+    width: '100%',
+    ...theme.mixins.toolbar,
+    justifyContent: 'flex-end',
+  },
 }));
 
 function App() {
@@ -49,7 +56,7 @@ function App() {
         <Switch>
           <Container>
             <ThemeProvider theme={theme}>
-              <div className={classes.body}>
+              <div className={classes.root}>
                 <PrivateRoute exact path="/" component={Home} />
                 <PrivateRoute exact path='/reservations' component={Reservations} />
                 <PrivateRoute exact path='/add-reservation' component={AddReservation} />

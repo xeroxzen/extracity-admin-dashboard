@@ -61,11 +61,12 @@ const useStyles = makeStyles((theme) => ({
     drawer: {
         width: drawerWidth,
         flexShrink: 0,
+
     },
     drawerPaper: {
         width: drawerWidth,
         backgroundColor: "#34495E",
-        color: "white",
+        color: "#ffffff",
     },
     drawerHeader: {
         display: 'flex',
@@ -100,7 +101,7 @@ const useStyles = makeStyles((theme) => ({
         color: "#F7F9F9",
     },
     dropdownTitle: {
-        color: "red",
+        color: "#ff1744",
 
     },
     dropDownMenu: {
