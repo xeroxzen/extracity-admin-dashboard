@@ -22,6 +22,31 @@ const columns = [
     },
 ];
 
+const headCells = [
+    {
+        field: "fullname",
+        headerName: "Full name",
+        description: 'This column has a value'
+    },
+    { field: "phone", headerName: "PHONE #", width: 70 },
+    { field: "trip", headerName: "TRIP", width: 130 },
+    { field: "date", headerName: "DATE", width: 130 },
+    { field: "time", headerName: "TIME", width: 130 },
+    { field: "email", headerName: "EMAIL", width: 130 },
+    { field: "amount", headerName: "AMOUNT", width: 130 },
+    {
+        field: "payment",
+        headerName: "PAYMENT METHOD",
+        width: 130
+    },
+    {
+        field: "payer",
+        headerName: "PAYMENT ACCOUNT",
+        width: 130
+    },
+    { field: "ticketId", headerName: "TICKET ID", width: 130 },
+]
+
 const rows = [
     { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
     { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
@@ -37,7 +62,7 @@ const rows = [
 export default function DataTable() {
     return (
         <div style={{ height: 400, width: '100%' }}>
-            <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection />
+            <DataGrid rows={rows} columns={headCells} pageSize={5} checkboxSelection />
         </div>
     );
 }
