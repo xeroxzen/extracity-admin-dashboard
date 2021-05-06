@@ -26,24 +26,24 @@ const headCells = [
             `${params.getValue('firstName') || ''} ${params.getValue('lastName') || ''}`,
     },
     { field: "PhoneNumber", headerName: "PHONE #", width: 130 },
-    { field: "Trip", headerName: "TRIP", width: 130 },
+    { field: "Trip", headerName: "TRIP", width: 170 },
     {
         field: moment(Date, "YYYY-MM-DD").format("LLL"), headerName: "DATE", width: 150
     },
     { field: "TravelTime", headerName: "TIME", width: 110 },
-    { field: "Email", headerName: "EMAIL", width: 130 },
+    // { field: "Email", headerName: "EMAIL", width: 130 },
     { field: "Amount", headerName: "AMOUNT", width: 110 },
-    {
-        field: "PaymentMethod",
-        headerName: "PAYMENT METHOD",
-        width: 130
-    },
-    {
-        field: "MobileMoneyAccount",
-        headerName: "PAYMENT ACCOUNT",
-        width: 130
-    },
-    { field: "TicketID", headerName: "TICKET ID", width: 130 },
+    // {
+    //     field: "PaymentMethod",
+    //     headerName: "PAYMENT METHOD",
+    //     width: 130
+    // },
+    // {
+    //     field: "MobileMoneyAccount",
+    //     headerName: "PAYMENT ACCOUNT",
+    //     width: 130
+    // },
+    { field: "TicketID", headerName: "TICKET ID", width: 150 },
 ]
 
 export default function DataTable() {
