@@ -9,6 +9,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import HomeIcon from "@material-ui/icons/Home";
 import ExploreIcon from '@material-ui/icons/Explore';
 import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
+import DirectionsBusIcon from "@material-ui/icons/DirectionsBus";
 import AirlineSeatReclineNormalSharpIcon from '@material-ui/icons/AirlineSeatReclineNormalSharp';
 import AssessmentIcon from '@material-ui/icons/Assessment';
 // import ThumbDown from "@material-ui/icons/ThumbDown";
@@ -115,7 +116,23 @@ export default function Navbar() {
                         <ListItemText primary="Payments" />
                     </ListItemLink>
                     <Divider />
+
+                    <ListItemLink href="/trips">
+                        <ListItemIcon>
+                            <DirectionsBusIcon color="primary" />
+                        </ListItemIcon>
+                        <ListItemText primary="Trips" />
+                    </ListItemLink>
+                    <Divider />
                     <pagesList />
+
+                    <ListItemLink href="/fares">
+                        <ListItemIcon>
+                            <MonetizationOnIcon color="primary" />
+                        </ListItemIcon>
+                        <ListItemText primary="Fares" />
+                    </ListItemLink>
+                    <Divider />
                 </List>
             </Drawer>
         </div>

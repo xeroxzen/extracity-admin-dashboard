@@ -10,6 +10,12 @@ import AddReservation from './pages/reservations/AddReservation';
 import { AuthProvider } from "./contexts/AuthContext";
 import { login } from "./pages/accounts/login";
 import { register } from "./pages/accounts/register";
+import Trips from './pages/trips/Trips';
+import AddTrip from './pages/trips/AddTrip';
+import TripStops from './pages/trips/TripStops';
+import AddTripStop from './pages/trips/AddTripStop';
+import Fares from './pages/fares/Fares';
+import AddFare from './pages/fares/AddFare';
 import Home from "./pages/home/home";
 import "@fontsource/roboto";
 
@@ -58,6 +64,12 @@ function App() {
                 <PrivateRoute exact path="/" component={Home} />
                 <PrivateRoute exact path='/reservations' component={Reservations} />
                 <PrivateRoute exact path='/add-reservation' component={AddReservation} />
+                <PrivateRoute exact path='/trips' component={Trips} />
+                <PrivateRoute exact path='/trips/add' component={AddTrip} />
+                <PrivateRoute exact path='/trips/:id/stops' component={TripStops} />
+                <PrivateRoute exact path='/trips/:id/stops/add' component={AddTripStop} />
+                <PrivateRoute exact path='/fares' component={Fares} />
+                <PrivateRoute exact path='/fares/add' component={AddFare} />
               </div>
               <div>
                 <Route exact path='/login' component={login} />
