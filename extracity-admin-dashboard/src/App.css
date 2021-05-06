@@ -48,7 +48,7 @@ body {
   /* background: #C9CCD3; */
   /* background-image: linear-gradient(-180deg, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%); */
   /* background-blend-mode: lighten; */
-
+  /* 
   background-image: linear-gradient(to left, #bdbbbe 0%, #9d9ea3 100%),
     radial-gradient(
       88% 271%,
@@ -60,7 +60,7 @@ body {
       50% 100%,
       rgba(255, 255, 255, 0.3) 0%,
       rgba(0, 0, 0, 0.3) 100%
-    );
+    ); */
   background-blend-mode: normal, lighten, soft-light;
   background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
   background-image: linear-gradient(to right, #434343 0%, black 100%);
