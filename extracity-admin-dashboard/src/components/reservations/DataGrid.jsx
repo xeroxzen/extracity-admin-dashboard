@@ -28,8 +28,8 @@ const headCells = [
     { field: "PhoneNumber", headerName: "PHONE #", width: 130 },
     { field: "Trip", headerName: "TRIP", width: 170 },
     {
-        field: moment(Date, "YYYY-MM-DD").format("LLL"), headerName: "DATE", width: 150
-    },
+        field: moment("Date").startOf("day").fromNow(), headerName: "DATE", width: 150
+    }, //moment().startOf('day').fromNow(); 
     { field: "TravelTime", headerName: "TIME", width: 110 },
     // { field: "Email", headerName: "EMAIL", width: 130 },
     { field: "Amount", headerName: "AMOUNT", width: 110 },

@@ -1,6 +1,6 @@
 import React from 'react'
 import Footer from '../../components/layout/Footer'
-import Navbar from '../../components/layout/Navbar'
+import Sidebar from '../../components/layout/Sidebar'
 import TripStopsTable from '../../components/trips/TripStopsTable'
 import firebase from "../../firebase.config";
 import { useParams } from "react-router-dom";
@@ -16,10 +16,11 @@ export default function TripStops() {
 		const db = firebase.firestore();
 		db.collection("trips").doc(id).get().then((doc) => {
 			console.log(doc);
-			if (doc.exists)setTrip(doc.data());}
-		);	
+			if (doc.exists) setTrip(doc.data());
+		}
+		);
 	}
-	
+
 	React.useEffect(() => {
 		fetchData();
 	}, []);
@@ -30,20 +31,20 @@ export default function TripStops() {
 		display = (
 			<div>
 				<h1>{trip.name}</h1>
-				<TripStopsTable trip={trip}/>
+				<TripStopsTable trip={trip} />
 			</div>
 		);
-	else 
+	else
 		display = (
-				<h1>Trip not found!</h1>
+			<h1>Trip not found!</h1>
 		);
-    
 
-    return (
-	        <div>
-	            <Navbar />
-	            {display}
-	            <Footer />
-	        </div>
-	    );
+
+	return (
+		<div>
+			<Sidebar />
+			{display}
+			<Footer />
+		</div>
+	);
 }
