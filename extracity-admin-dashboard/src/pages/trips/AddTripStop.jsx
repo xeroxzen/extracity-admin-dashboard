@@ -1,6 +1,6 @@
 import React from 'react'
 import Footer from '../../components/layout/Footer'
-import Navbar from '../../components/layout/Navbar'
+import Sidebar from '../../components/layout/Sidebar'
 import TripStopCreateForm from '../../components/trips/TripStopCreateForm'
 import firebase from "../../firebase.config";
 import { useParams } from "react-router-dom";
@@ -46,7 +46,7 @@ export default function AddTripStop() {
 
     return (
 	        <div>
-	            <Navbar />
+	            <Sidebar />
 	            {display}
 	            <Footer />
 	        </div>

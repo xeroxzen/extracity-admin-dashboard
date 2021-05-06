@@ -18,6 +18,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from "@material-ui/icons/Home";
 import ExploreIcon from '@material-ui/icons/Explore';
 import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
+import DirectionsBusIcon from "@material-ui/icons/DirectionsBus";
+import PaymentIcon from "@material-ui/icons/Payment";
 import AirlineSeatReclineNormalSharpIcon from '@material-ui/icons/AirlineSeatReclineNormalSharp';
 import AssessmentIcon from '@material-ui/icons/Assessment';
 import { useHistory } from "react-router-dom";
@@ -261,9 +263,25 @@ export default function Sidebar() {
 
                     <ListItemLink href="/payments">
                         <ListItemIcon>
-                            <MonetizationOnIcon color="primary" />
+                            <PaymentIcon color="primary" />
                         </ListItemIcon>
                         <ListItemText primary="Payments" />
+                    </ListItemLink>
+                    <Divider />
+
+                    <ListItemLink href="/fares">
+                        <ListItemIcon>
+                            <MonetizationOnIcon color="primary" />
+                        </ListItemIcon>
+                        <ListItemText primary="Fares" />
+                    </ListItemLink>
+                    <Divider />
+
+                    <ListItemLink href="/trips">
+                        <ListItemIcon>
+                            <DirectionsBusIcon color="primary" />
+                        </ListItemIcon>
+                        <ListItemText primary="Trips" />
                     </ListItemLink>
                     <Divider />
                 </List>

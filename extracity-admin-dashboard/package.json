@@ -22,10 +22,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "tslib": "^2.2.0",
-<<<<<<< HEAD
-=======
     "uuidv4": "^6.2.7",
->>>>>>> fares
     "web-vitals": "^1.1.1"
   },
   "scripts": {
