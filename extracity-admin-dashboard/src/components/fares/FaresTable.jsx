@@ -398,6 +398,7 @@ export default function FaresTable() {
 }
 
 function showPrices(map) {
+  if (map === undefined || map === null) return "";
   var map = new Map(Object.entries(map));
   var arr = new Array();
 

@@ -43,7 +43,7 @@ const headCells = [
     //     headerName: "PAYMENT ACCOUNT",
     //     width: 130
     // },
-    { field: "TicketID", headerName: "TICKET ID", width: 150 },
+    { field: "TicketID", headerName: "TICKET ID", width: 200 },
 ]
 
 export default function DataTable() {
@@ -62,7 +62,7 @@ export default function DataTable() {
         // style={{ height: 400, width: '100%', marginTop: 70, }}
         <div className={classes.root}>
             <h3 style={{ marginBottom: 20, }}>Ticket Reservation list</h3>
-            <DataGrid rows={reservations} columns={headCells} checkboxSelection />
+            <DataGrid rows={reservations} columns={headCells} />
         </div>
     );
 }

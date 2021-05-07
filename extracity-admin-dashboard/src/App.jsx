@@ -16,7 +16,7 @@ import TripStops from './pages/trips/TripStops';
 import AddTripStop from './pages/trips/AddTripStop';
 import Fares from './pages/fares/Fares';
 import AddFare from './pages/fares/AddFare';
-import Home from "./pages/home/home";
+import Homepage from "./pages/home/homepage";
 import "@fontsource/roboto";
 
 const theme = createMuiTheme({
@@ -63,7 +63,7 @@ function App() {
           <Container>
             <ThemeProvider theme={theme}>
               <div className={classes.root}>
-                <PrivateRoute exact path="/" component={Home} />
+                <PrivateRoute exact path="/" component={Homepage} />
                 <PrivateRoute exact path='/reservations' component={Reservations} />
                 <PrivateRoute exact path='/add-reservation' component={AddReservation} />
                 <PrivateRoute exact path='/trips' component={Trips} />

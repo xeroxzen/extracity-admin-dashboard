@@ -5,17 +5,16 @@ import Footer from "../../components/layout/Footer";
 import { Container } from "react-bootstrap";
 // import ReservationTable from "../../components/reservations/ReservationTable";
 import Sidebar from "../../components/layout/Sidebar";
-import DataGrid from '../../components/reservations/DataGrid'
+// import DataGrid from '../../components/reservations/DataGrid'
 
-export default function Home() {
+export default function Homepage() {
     return (
         <Container>
             <Sidebar />
-            {/* <ReservationTable /> */}
             <Home />
             {/* <DataGrid /> */}
             <Footer />
         </Container>
     );
 }
-export { Home };
+export { Homepage };
