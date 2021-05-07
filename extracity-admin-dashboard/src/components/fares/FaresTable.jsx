@@ -23,6 +23,7 @@ import FilterListIcon from "@material-ui/icons/FilterList";
 import firebase from "../../firebase.config";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import { Button } from '@material-ui/core';
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -164,8 +165,14 @@ const EnhancedTableToolbar = (props) => {
           id="tableTitle"
           component="div"
         >
-            Fares
-            <Link to="/fares/add"><button>Add</button></Link>
+          Fares
+          {/* <Link to="/fares/add"><button>Add</button></Link> */}
+          <Button
+            variant="contained"
+            color="primary"
+            href="/fares/add"
+            paddingLeft="15"
+            className={classes.button}>Add Fare</Button>
         </Typography>
       )}
 
@@ -348,7 +355,7 @@ export default function FaresTable() {
                       >
                         {fare.from}
                       </TableCell>
-                       <TableCell align="right">
+                      <TableCell align="right">
                         {fare.to}
                       </TableCell>
                       <TableCell align="right">
@@ -390,7 +397,7 @@ export default function FaresTable() {
   );
 }
 
-function showPrices(map){
+function showPrices(map) {
   var map = new Map(Object.entries(map));
   var arr = new Array();
 
