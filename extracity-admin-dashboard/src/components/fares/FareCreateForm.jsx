@@ -21,7 +21,7 @@ export default function FareCreateForm(props) {
       else{
         let id = uuid();
         console.log(prices);
-
+        var possibleTrips = [`${from}-${to}`,`${to}-${from}`];
         //save
         db
           .collection("fares")
@@ -29,6 +29,7 @@ export default function FareCreateForm(props) {
             id: id,
             to: to,
             from: from,
+            possibleTrips: possibleTrips,
             prices: Object.fromEntries(prices),
             date: new Date(),
           })
