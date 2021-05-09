@@ -13,8 +13,6 @@ export default function Reservations() {
             <Sidebar />
             {/* <ReservationTable /> */}
             <DataGrid />
-            <Navbar />
-            <ReservationTable />
             <Footer />
         </div>
     )
