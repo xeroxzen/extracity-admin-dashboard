@@ -127,7 +127,6 @@ export default function TripStopCreateForm(props) {
         type='submit'
         value='Save'
       />
-      <a href="https://meet.google.com/xoj-ehmv-raa">Google Meet</a>
     </form>
   )
 }

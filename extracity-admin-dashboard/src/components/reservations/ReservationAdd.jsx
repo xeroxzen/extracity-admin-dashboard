@@ -7,7 +7,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import { Button, MenuItem } from '@material-ui/core';
 // eslint-disable-next-line
-import firebase from "../../firebase.config";
+// import firebase from "../../firebase.config";
 
 const useStyles = makeStyles((theme) => ({
     root: {
