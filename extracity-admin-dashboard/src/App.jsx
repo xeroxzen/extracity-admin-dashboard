@@ -18,6 +18,8 @@ import Fares from './pages/fares/Fares';
 import AddFare from './pages/fares/AddFare';
 import Homepage from "./pages/home/homepage";
 import "@fontsource/roboto";
+import Statistics from "./pages/statistics/Statistics";
+import Payments from "./pages/payments/Payments";
 
 const theme = createMuiTheme({
   palette: {
@@ -72,6 +74,8 @@ function App() {
                 <PrivateRoute exact path='/trips/:id/stops/add' component={AddTripStop} />
                 <PrivateRoute exact path='/fares' component={Fares} />
                 <PrivateRoute exact path='/fares/add' component={AddFare} />
+                <PrivateRoute exact path="/statistics" component={Statistics} />
+                <PrivateRoute exact path="/payments" component={Payments} />
               </div>
               <div>
                 <Route exact path='/login' component={login} />
