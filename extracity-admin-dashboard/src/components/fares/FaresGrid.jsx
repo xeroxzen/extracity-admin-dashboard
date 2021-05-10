@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { DataGrid } from '@material-ui/data-grid';
 import firebase from '../../firebase.config'
 // import moment from 'moment'
@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
     },
     button: {
-        marginTop: '10px',
+        marginBottom: '10px',
     }
 }));
 
@@ -39,6 +39,11 @@ export default function FaresGrid() {
     return (
         <div className={classes.root}>
             <h3 style={{ marginBottom: 20, }}>Fares</h3>
+            <Button
+                variant="contained"
+                color="primary"
+                href="/fares/add"
+                className={classes.button}>Add Fare</Button>
             <DataGrid rows={fares} columns={columns} />
         </div>
     )

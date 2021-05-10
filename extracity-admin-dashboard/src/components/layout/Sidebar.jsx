@@ -276,7 +276,13 @@ export default function Sidebar() {
                         <ListItemText primary="Fares" />
                     </ListItemLink>
                     <Divider />
-
+                    <ListItemLink href="/fares-grid">
+                        <ListItemIcon>
+                            <MonetizationOnIcon color="primary" />
+                        </ListItemIcon>
+                        <ListItemText primary="Fares Grid" />
+                    </ListItemLink>
+                    <Divider />
                     <ListItemLink href="/trips">
                         <ListItemIcon>
                             <DirectionsBusIcon color="primary" />
