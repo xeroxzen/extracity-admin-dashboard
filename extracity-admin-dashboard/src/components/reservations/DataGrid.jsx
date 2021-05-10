@@ -73,7 +73,6 @@ export default function DataTable() {
         fetchReservations();
     }, []);
     return (
-        // style={{ height: 400, width: '100%', marginTop: 70, }}
         <div className={classes.root}>
             <h3 style={{ marginBottom: 20, }}>Ticket Reservation List</h3> <Button
                 variant="contained"
