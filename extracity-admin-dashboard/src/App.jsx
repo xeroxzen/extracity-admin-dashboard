@@ -16,8 +16,11 @@ import TripStops from './pages/trips/TripStops';
 import AddTripStop from './pages/trips/AddTripStop';
 import Fares from './pages/fares/Fares';
 import AddFare from './pages/fares/AddFare';
-import Home from "./pages/home/home";
+import Homepage from "./pages/home/homepage";
 import "@fontsource/roboto";
+import Statistics from "./pages/statistics/Statistics";
+import Payments from "./pages/payments/Payments";
+import FaresGrid from "./components/fares/FaresGrid";
 
 const theme = createMuiTheme({
   palette: {
@@ -63,15 +66,18 @@ function App() {
           <Container>
             <ThemeProvider theme={theme}>
               <div className={classes.root}>
-                <PrivateRoute exact path="/" component={Home} />
+                <PrivateRoute exact path="/" component={Homepage} />
                 <PrivateRoute exact path='/reservations' component={Reservations} />
-                <PrivateRoute exact path='/add-reservation' component={AddReservation} />
+                <PrivateRoute exact path='/reservations/add-reservation' component={AddReservation} />
                 <PrivateRoute exact path='/trips' component={Trips} />
                 <PrivateRoute exact path='/trips/add' component={AddTrip} />
                 <PrivateRoute exact path='/trips/:id/stops' component={TripStops} />
                 <PrivateRoute exact path='/trips/:id/stops/add' component={AddTripStop} />
                 <PrivateRoute exact path='/fares' component={Fares} />
+                <PrivateRoute exact path="/fares-grid" component={FaresGrid} />
                 <PrivateRoute exact path='/fares/add' component={AddFare} />
+                <PrivateRoute exact path="/statistics" component={Statistics} />
+                <PrivateRoute exact path="/payments" component={Payments} />
               </div>
               <div>
                 <Route exact path='/login' component={login} />

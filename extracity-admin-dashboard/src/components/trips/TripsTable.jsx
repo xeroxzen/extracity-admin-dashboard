@@ -62,7 +62,7 @@ const headCells = [
   { id: "times", numeric: false, disablePadding: true, label: "TIMES" },
   { id: "stops", numeric: false, disablePadding: true, label: "STOPS" },
   { id: "date", numeric: false, disablePadding: true, label: "DATE" },
-  { id: "actions", numeric: false, disablePadding: false, label: "ACTIONS"}
+  { id: "actions", numeric: false, disablePadding: false, label: "ACTIONS" }
 ];
 
 function EnhancedTableHead(props) {
@@ -172,8 +172,8 @@ const EnhancedTableToolbar = (props) => {
           id="tableTitle"
           component="div"
         >
-            Trips 
-            <Link to="/trips/add"><button>Add</button></Link>
+          Trips
+          <Link to="/trips/add"><button>Add</button></Link>
         </Typography>
       )}
 
@@ -241,7 +241,7 @@ export default function TripsTable() {
       const db = firebase.firestore();
       await db.collection("trips").get().then(
         (data) => setTrips(data.docs.map((doc) => doc)
-      ))
+        ))
       //setTrips(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     fetchTrips();
@@ -358,10 +358,10 @@ export default function TripsTable() {
                       >
                         {trip.name}
                       </TableCell>
-                       <TableCell align="right">
+                      <TableCell align="right">
                         {trip.from}
                       </TableCell>
-                       <TableCell align="right">
+                      <TableCell align="right">
                         {trip.to}
                       </TableCell>
                       <TableCell align="right">
@@ -405,11 +405,13 @@ export default function TripsTable() {
   );
 }
 
-function displayStops(map){
-  var map = new Map(Object.entries(map));
-  var arr = new Array();
+function displayStops(map) {
+  if (map === undefined || map === null) return "";
 
-  map.forEach((v) => {
+  var newMap = new Map(Object.entries(map));
+  var arr = []; // initially new Array()
+
+  newMap.forEach((v) => {
     arr.push(v.name);
   });
 

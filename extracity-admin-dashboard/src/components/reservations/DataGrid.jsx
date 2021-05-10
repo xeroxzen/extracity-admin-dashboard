@@ -3,6 +3,7 @@ import { DataGrid } from '@material-ui/data-grid';
 import firebase from "../../firebase.config";
 import { makeStyles } from "@material-ui/core/styles";
 import moment from 'moment'
+import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -10,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         // marginTop: 70,
     },
+    button: {
+        marginBottom: '10px',
+    }
 }));
 
 const headCells = [
@@ -43,7 +47,7 @@ const headCells = [
     //     headerName: "PAYMENT ACCOUNT",
     //     width: 130
     // },
-    { field: "TicketID", headerName: "TICKET ID", width: 150 },
+    { field: "TicketID", headerName: "TICKET ID", width: 200 },
 ]
 
 export default function DataTable() {
@@ -53,16 +57,30 @@ export default function DataTable() {
     React.useState(() => {
         const fetchReservations = async () => {
             const db = firebase.firestore();
-            const data = await db.collection('reservations').get();
-            setReservations(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+            const data = db.collection('reservations');
+            const query = await data.where('status', '==', 'paid').get();
+            if (query.empty) {
+                console.log('No matching documents.');
+                return
+            }
+
+            query.forEach(doc => {
+                console.log(doc.id, '=>', doc.data());
+            });
+
+            setReservations(query.docs.map(doc => ({ ...doc.data(), id: doc.id })));
         };
         fetchReservations();
     }, []);
     return (
-        // style={{ height: 400, width: '100%', marginTop: 70, }}
         <div className={classes.root}>
-            <h3 style={{ marginBottom: 20, }}>Ticket Reservation list</h3>
-            <DataGrid rows={reservations} columns={headCells} checkboxSelection />
+            <h3 style={{ marginBottom: 20, }}>Ticket Reservation List</h3> <Button
+                variant="contained"
+                color="primary"
+                href="/add-reservation"
+                className={classes.button}>Add Reservation</Button>
+            <br />
+            <DataGrid rows={reservations} columns={headCells} />
         </div>
     );
 }

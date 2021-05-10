@@ -20,8 +20,8 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import DeleteIcon from "@material-ui/icons/Delete";
 import FilterListIcon from "@material-ui/icons/FilterList";
-import firebase from "../../firebase.config";
-import { Link,useParams } from "react-router-dom";
+// import firebase from "../../firebase.config";
+import { Link, useParams } from "react-router-dom";
 import moment from "moment";
 
 function descendingComparator(a, b, orderBy) {
@@ -170,8 +170,8 @@ const EnhancedTableToolbar = (props) => {
           id="tableTitle"
           component="div"
         >
-            Stops 
-            <Link to={addLink}><button>Add</button></Link>
+          Stops
+          <Link to={addLink}><button>Add</button></Link>
         </Typography>
       )}
 
@@ -302,7 +302,7 @@ export default function TripStopsTable(props) {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+        <EnhancedTableToolbar numSelected={selected?.length} />
         <TableContainer>
           <Table
             className={classes.table}
@@ -312,7 +312,7 @@ export default function TripStopsTable(props) {
           >
             <EnhancedTableHead
               classes={classes}
-              numSelected={selected.length}
+              numSelected={selected?.length}
               order={order}
               orderBy={orderBy}
               onSelectAllClick={handleSelectAllClick}
@@ -320,7 +320,7 @@ export default function TripStopsTable(props) {
               rowCount={props.trip.stops?.length}
             />
             <TableBody>
-              {stableSort(Array.from(new Map(Object.entries(props.trip.stops)).values()), getComparator(order, orderBy))
+              {stableSort((props.trip.stops === undefined || props.trip.stops === null) ? [] : Array.from(new Map(Object.entries(props.trip.stops)).values()), getComparator(order, orderBy))
                 ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((stop, index) => {
                   const isItemSelected = isSelected(stop.id);
@@ -352,7 +352,7 @@ export default function TripStopsTable(props) {
                       >
                         {stop.get('name')}
                       </TableCell>
-                       <TableCell align="right">
+                      <TableCell align="right">
                         {displayTimes(stop.get('times'))}
                       </TableCell>
                       <TableCell align="right">
@@ -389,11 +389,12 @@ export default function TripStopsTable(props) {
   );
 }
 
-function displayTimes(map){
-  var map = new Map(Object.entries(map));
-  var arr = new Array();
+function displayTimes(map) {
+  if (map === undefined || map === null) return "";
+  var newMap = new Map(Object.entries(map));
+  var arr = [];
 
-  map.forEach((v) => {
+  newMap.forEach((v) => {
     arr.push(v);
   });
 

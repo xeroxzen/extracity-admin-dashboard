@@ -3,7 +3,8 @@ import React from 'react'
 export default function Home() {
     return (
         <div>
-            <p>Something comes from here</p>
+            <h2>Home</h2>
+            <p>Something beautiful will be put up here</p>
         </div>
     )
 }
