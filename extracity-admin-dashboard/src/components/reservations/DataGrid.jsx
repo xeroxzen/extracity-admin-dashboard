@@ -57,8 +57,18 @@ export default function DataTable() {
     React.useState(() => {
         const fetchReservations = async () => {
             const db = firebase.firestore();
-            const data = await db.collection('reservations').get();
-            setReservations(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+            const data = db.collection('reservations');
+            const query = await data.where('status', '==', 'paid').get();
+            if (query.empty) {
+                console.log('No matching documents.');
+                return
+            }
+
+            query.forEach(doc => {
+                console.log(doc.id, '=>', doc.data());
+            });
+
+            setReservations(query.docs.map(doc => ({ ...doc.data(), id: doc.id })));
         };
         fetchReservations();
     }, []);
