@@ -244,7 +244,7 @@ export default function Sidebar() {
                     </ListItemLink>
                     <Divider />
 
-                    <ListItemLink href="/add-reservation">
+                    <ListItemLink href="/reservations/add-reservation">
                         <ListItemIcon>
                             <AirlineSeatReclineNormalSharpIcon color="primary" />
                         </ListItemIcon>
