@@ -109,7 +109,6 @@ export default function TripStopCreateForm(props) {
                   <input
                     name='to'
                     type="number"
-                    type='text'
                     onChange={e => {
                       times.delete(time);
                       setTimes(times.set(time, e.target.value))

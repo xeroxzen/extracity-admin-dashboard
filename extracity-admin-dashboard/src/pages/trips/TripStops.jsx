@@ -24,6 +24,7 @@ export default function TripStops() {
 			);
 		};
 		fetchData();
+		// eslint-disable-next-line
 	}, []);
 
 	//display the stops

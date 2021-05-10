@@ -21,7 +21,6 @@ import Switch from "@material-ui/core/Switch";
 import DeleteIcon from "@material-ui/icons/Delete";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import firebase from "../../firebase.config";
-import { Link } from "react-router-dom";
 import moment from "moment";
 import { Button } from '@material-ui/core';
 
@@ -328,7 +327,7 @@ export default function FaresTable() {
                 .map((fare, index) => {
                   const isItemSelected = isSelected(fare.id);
                   const labelId = `enhanced-table-checkbox-${index}`;
-                  var link = `/fares/${fare.id}/stops/add`;
+                  // var link = `/fares/${fare.id}/stops/add`;
                   console.log(fare);
 
                   return (
@@ -399,10 +398,10 @@ export default function FaresTable() {
 
 function showPrices(map) {
   if (map === undefined || map === null) return "";
-  var map = new Map(Object.entries(map));
-  var arr = new Array();
+  var newMap = new Map(Object.entries(map));
+  var arr = [];
 
-  map.forEach((v, k) => {
+  newMap.forEach((v, k) => {
     arr.push(k + v);
   });
 

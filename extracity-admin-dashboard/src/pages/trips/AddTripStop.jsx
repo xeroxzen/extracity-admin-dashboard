@@ -42,6 +42,7 @@ export default function AddTripStop() {
 			);
 		};
 		fetchData();
+		// eslint-disable-next-line
 	}, []);
 
 	//display the stops
