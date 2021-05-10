@@ -5,7 +5,7 @@ import Container from "@material-ui/core/Container";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import PrivateRoute from './PrivateRoute';
-import Reservations from './pages/reservations/Reservations'
+import Data from './pages/reservations/Data'
 import AddReservation from './pages/reservations/AddReservation';
 import { AuthProvider } from "./contexts/AuthContext";
 import { login } from "./pages/accounts/login";
@@ -67,7 +67,7 @@ function App() {
             <ThemeProvider theme={theme}>
               <div className={classes.root}>
                 <PrivateRoute exact path="/" component={Homepage} />
-                <PrivateRoute exact path='/reservations' component={Reservations} />
+                <PrivateRoute exact path='/reservations' component={Data} />
                 <PrivateRoute exact path='/reservations/add-reservation' component={AddReservation} />
                 <PrivateRoute exact path='/trips' component={Trips} />
                 <PrivateRoute exact path='/trips/add' component={AddTrip} />

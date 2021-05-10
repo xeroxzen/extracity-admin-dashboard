@@ -17,9 +17,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const headCells = [
-    // { field: 'id', headerName: 'ID', width: 70 },
-    // { field: 'firstName', headerName: 'First name', width: 130 },
-    // { field: 'lastName', headerName: 'Last name', width: 130 },
     {
         field: "fullname",
         headerName: "FULL NAME",
@@ -27,12 +24,12 @@ const headCells = [
         sortable: false,
         width: 160,
         valueGetter: (params) =>
-            `${params.getValue('firstName') || ''} ${params.getValue('lastName') || ''}`,
+            `${params.row.fullname}`,
     },
     { field: "PhoneNumber", headerName: "PHONE #", width: 130 },
     { field: "Trip", headerName: "TRIP", width: 170 },
     {
-        field: moment("Date").startOf("day").fromNow(), headerName: "DATE", width: 150
+        field: "Date", headerName: "DATE", width: 160, valueGetter: params => `${params.row.Date.toDate()}`,
     }, //moment().startOf('day').fromNow(); 
     { field: "TravelTime", headerName: "TIME", width: 110 },
     // { field: "Email", headerName: "EMAIL", width: 130 },
@@ -47,7 +44,7 @@ const headCells = [
     //     headerName: "PAYMENT ACCOUNT",
     //     width: 130
     // },
-    { field: "TicketID", headerName: "TICKET ID", width: 200 },
+    { field: "TicketID", headerName: "TICKET ID", width: 180 },
 ]
 
 export default function DataTable() {
