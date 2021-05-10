@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import MultipleTimeSelect from './MultipleTimeSelect';
+// import MultipleTimeSelect from './MultipleTimeSelect';
 import { useHistory } from 'react-router-dom';
 import firebase from "../../firebase.config";
 const { uuid } = require("uuidv4");
 
+
+// eslint-disable-next-line
 function keyMap(src, target) {
   target = target || {};
   Object.keys(src).forEach(function (propName) {
@@ -45,7 +47,7 @@ export default function TripStopCreateForm(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (name == undefined || name == "" || times == undefined || times.length == 0) alert("Please fill in all input fields!");
+    if (name === undefined || name === "" || times === undefined || times.length === 0) alert("Please fill in all input fields!");
     else {
       let id = uuid();
 

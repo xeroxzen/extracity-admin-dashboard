@@ -20,7 +20,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import DeleteIcon from "@material-ui/icons/Delete";
 import FilterListIcon from "@material-ui/icons/FilterList";
-import firebase from "../../firebase.config";
+// import firebase from "../../firebase.config";
 import { Link, useParams } from "react-router-dom";
 import moment from "moment";
 
@@ -391,10 +391,10 @@ export default function TripStopsTable(props) {
 
 function displayTimes(map) {
   if (map === undefined || map === null) return "";
-  var map = new Map(Object.entries(map));
-  var arr = new Array();
+  var newMap = new Map(Object.entries(map));
+  var arr = [];
 
-  map.forEach((v) => {
+  newMap.forEach((v) => {
     arr.push(v);
   });
 
