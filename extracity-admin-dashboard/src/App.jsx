@@ -14,7 +14,7 @@ import Trips from './pages/trips/Trips';
 import AddTrip from './pages/trips/AddTrip';
 import TripStops from './pages/trips/TripStops';
 import AddTripStop from './pages/trips/AddTripStop';
-import Fares from './pages/fares/Fares';
+// import Fares from './pages/fares/Fares';
 import AddFare from './pages/fares/AddFare';
 import Homepage from "./pages/home/homepage";
 import "@fontsource/roboto";
