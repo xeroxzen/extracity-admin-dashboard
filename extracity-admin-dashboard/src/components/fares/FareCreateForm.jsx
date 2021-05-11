@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import { useHistory } from 'react-router-dom';
 import firebase from "../../firebase.config";
+import { makeStyles } from "@material-ui/core/styles";
 const { uuid } = require("uuidv4");
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    marginTop: 80,
+  },
+}));
+
 export default function FareCreateForm(props) {
+  const classes = useStyles();
   const history = useHistory();
   const db = firebase.firestore();
   const [to, setTo] = useState();
@@ -46,7 +54,7 @@ export default function FareCreateForm(props) {
   }
 
   return (
-    <form onSubmit={e => { handleSubmit(e) }}>
+    <form onSubmit={e => { handleSubmit(e) }} className={classes.root}>
       <br />
       <br />
       <label>From</label>

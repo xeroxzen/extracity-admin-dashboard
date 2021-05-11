@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         height: 400,
         width: '100%',
+        marginTop: 80,
     },
     button: {
         marginBottom: '10px',
