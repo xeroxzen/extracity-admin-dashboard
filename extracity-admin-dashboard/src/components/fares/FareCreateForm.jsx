@@ -41,6 +41,7 @@ export default function FareCreateForm(props) {
         .catch(
           (e) => alert("An error occurred!")
         );
+
     }
   }
 

@@ -19,7 +19,8 @@ import HomeIcon from "@material-ui/icons/Home";
 import ExploreIcon from '@material-ui/icons/Explore';
 import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
 import DirectionsBusIcon from "@material-ui/icons/DirectionsBus";
-import PaymentIcon from "@material-ui/icons/Payment";
+import FlightIcon from '@material-ui/icons/Flight';
+// import PaymentIcon from "@material-ui/icons/Payment";
 import AirlineSeatReclineNormalSharpIcon from '@material-ui/icons/AirlineSeatReclineNormalSharp';
 import AssessmentIcon from '@material-ui/icons/Assessment';
 import { useHistory } from "react-router-dom";
@@ -263,33 +264,33 @@ export default function Sidebar() {
 
                     <ListItemLink href="/payments">
                         <ListItemIcon>
-                            <PaymentIcon color="primary" />
+                            <MonetizationOnIcon color="primary" />
                         </ListItemIcon>
                         <ListItemText primary="Payments" />
                     </ListItemLink>
                     <Divider />
 
-                    <ListItemLink href="/fares">
+                    <ListItemLink href="/trips-grid">
                         <ListItemIcon>
-                            <MonetizationOnIcon color="primary" />
+                            <FlightIcon color="primary" />
                         </ListItemIcon>
-                        <ListItemText primary="Fares" />
+                        <ListItemText primary="Trip Grid" />
                     </ListItemLink>
                     <Divider />
-                    <ListItemLink href="/fares-grid">
+                    <ListItemLink href="/fares">
                         <ListItemIcon>
-                            <MonetizationOnIcon color="primary" />
+                            <DirectionsBusIcon color="primary" />
                         </ListItemIcon>
                         <ListItemText primary="Fares Grid" />
                     </ListItemLink>
                     <Divider />
-                    <ListItemLink href="/trips">
+                    {/* <ListItemLink href="/trips">
                         <ListItemIcon>
                             <DirectionsBusIcon color="primary" />
                         </ListItemIcon>
                         <ListItemText primary="Trips" />
                     </ListItemLink>
-                    <Divider />
+                    <Divider /> */}
                 </List>
             </Drawer>
         </div>

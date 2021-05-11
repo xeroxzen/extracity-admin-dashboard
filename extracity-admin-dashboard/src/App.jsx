@@ -5,7 +5,7 @@ import Container from "@material-ui/core/Container";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import PrivateRoute from './PrivateRoute';
-// import Reservations from './pages/reservations/Reservations'
+import Data from './pages/reservations/Data'
 import AddReservation from './pages/reservations/AddReservation';
 import { AuthProvider } from "./contexts/AuthContext";
 import { login } from "./pages/accounts/login";
@@ -14,13 +14,14 @@ import Trips from './pages/trips/Trips';
 import AddTrip from './pages/trips/AddTrip';
 import TripStops from './pages/trips/TripStops';
 import AddTripStop from './pages/trips/AddTripStop';
-import Fares from './pages/fares/Fares';
+// import Fares from './pages/fares/Fares';
 import AddFare from './pages/fares/AddFare';
 import Homepage from "./pages/home/homepage";
 import "@fontsource/roboto";
 import Statistics from "./pages/statistics/Statistics";
 import Payments from "./pages/payments/Payments";
-import FaresGrid from "./components/fares/FaresGrid";
+import Grid from './pages/fares/Grid'
+import TripGrid from './pages/trips/TripGrid'
 
 const theme = createMuiTheme({
   palette: {
@@ -67,14 +68,15 @@ function App() {
             <ThemeProvider theme={theme}>
               <div className={classes.root}>
                 <PrivateRoute exact path="/" component={Homepage} />
-                {/* <PrivateRoute exact path='/reservations' component={Reservations} /> */}
+                <PrivateRoute exact path='/reservations' component={Data} />
                 <PrivateRoute exact path='/reservations/add-reservation' component={AddReservation} />
                 <PrivateRoute exact path='/trips' component={Trips} />
+                <PrivateRoute exact path='/trips-grid' component={TripGrid} />
                 <PrivateRoute exact path='/trips/add' component={AddTrip} />
                 <PrivateRoute exact path='/trips/:id/stops' component={TripStops} />
                 <PrivateRoute exact path='/trips/:id/stops/add' component={AddTripStop} />
-                <PrivateRoute exact path='/fares' component={Fares} />
-                <PrivateRoute exact path="/fares-grid" component={FaresGrid} />
+                {/* <PrivateRoute exact path='/fares' component={Fares} /> */}
+                <PrivateRoute exact path="/fares" component={Grid} />
                 <PrivateRoute exact path='/fares/add' component={AddFare} />
                 <PrivateRoute exact path="/statistics" component={Statistics} />
                 <PrivateRoute exact path="/payments" component={Payments} />

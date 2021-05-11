@@ -62,11 +62,38 @@ export default function TripStopCreateForm(props) {
         date: new Date(),
       }
 
+      //console.log(stops);
+      //stops.delete(name);
+      //         stops[name] = {
+      //           id: id,
+      //           name: name,
+      //           times: Object.fromEntries(times),
+      //           date: new Date(),
+      //         }
+
+      //create possible trips
+      //[from] to any other stop including [to]
+      //[stop] to any other [stop]
+      let arr = Array.from(new Map(Object.entries(stops)).values());
+      let to_to_stops = [`${props.trip?.from}-${props.trip?.to}`];
+      let from_to_stops = (arr).map((item) => `${props.trip?.from}-${item.name}`);
+      let stops_to_stops = []
+      for (var x = 0; x < arr.length; x++) {
+        stops_to_stops.push(`${arr[x].name}-${props.trip?.to}`);
+        if (x < arr.length - 1) {
+          for (var y = x + 1; y < arr.length; y++) {
+            stops_to_stops.push(`${arr[x].name}-${arr[y].name}`);
+          }
+        }
+      }
+
+      var possibleTrips = to_to_stops.concat(from_to_stops, stops_to_stops);
+
       //save
       db
         .collection("trips")
         .doc(props.docID)
-        .update({ stops: stops })
+        .update({ stops: stops, possibleTrips: possibleTrips })
         .then(
           (doc) =>
             // fetching free slots
@@ -75,9 +102,23 @@ export default function TripStopCreateForm(props) {
         .catch(
           (e) => { alert("An error occurred!"); console.log(e); }
         );
-    }
-  }
 
+    }
+
+    //save
+    db
+      .collection("trips")
+      .doc(props.docID)
+      .update({ stops: stops })
+      .then(
+        (doc) =>
+          // fetching free slots
+          history.push("/trips/" + props.docID + "/stops")
+      )
+      .catch(
+        (e) => { alert("An error occurred!"); console.log(e); }
+      );
+  }
   return (
     <form onSubmit={e => { handleSubmit(e) }}>
       <br />
@@ -129,5 +170,6 @@ export default function TripStopCreateForm(props) {
         value='Save'
       />
     </form>
-  )
+  );
 }
+
