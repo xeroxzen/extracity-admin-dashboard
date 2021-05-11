@@ -218,47 +218,7 @@ export default function InputAdornments() {
                 </FormControl>
             </div>
             <div>
-                <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
-                    <Input
-                        id="standard-adornment-date"
-                        placeholder="22/07/2021"
-                        value={values.date}
-                        onChange={handleChange('date')}
-                        endAdornment={<InputAdornment position="end"></InputAdornment>}
-                        aria-describedby="standard-date-helper-text"
-                        inputProps={{
-                            'aria-label': 'Date of travel',
-                        }}
-                    />
-                    <FormHelperText id="standard-date-helper-text">Date of Travel</FormHelperText>
-                </FormControl>
-                {/* <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
-                    <Input
-                        id="standard-adornment-phone-number"
-                        value={values.weight}
-                        onChange={handleChange('phone')}
-                        endAdornment={<InputAdornment position="end"></InputAdornment>}
-                        aria-describedby="standard-date-helper-text"
-                        inputProps={{
-                            'aria-label': 'Phone Number',
-                        }}
-                    />
-                    <FormHelperText id="standard-date-helper-text">Phone Number</FormHelperText>
-                </FormControl> */}
-                <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
-                    <Input
-                        id="standard-adornment-travel-time"
-                        placeholder="Morning at 07:30"
-                        value={values.travelTime}
-                        onChange={handleChange('travelTime')}
-                        endAdornment={<InputAdornment position="end"></InputAdornment>}
-                        aria-describedby="standard-travel-time-helper-text"
-                        inputProps={{
-                            'aria-label': 'Time of travel',
-                        }}
-                    />
-                    <FormHelperText id="standard-date-helper-text">Time of Travel</FormHelperText>
-                </FormControl>
+                
                 <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
                     <Input
                         id="standard-adornment-payer-phone-number"
@@ -275,53 +235,6 @@ export default function InputAdornments() {
                 </FormControl>
             </div>
             <div>
-                <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
-                    <Input
-                        id="standard-adornment-departure-point"
-                        placeholder="Harare"
-                        select
-                        value={pickUpPoint}
-                        onChange={handlePickupPointSelectChange}
-                        endAdornment={<InputAdornment position="end"></InputAdornment>}
-                        aria-describedby="standard-departure-point-helper-text"
-                        inputProps={{
-                            'aria-label': 'Departure Point',
-                        }}
-                    >
-                        {pickupPoints.map(option => (
-                            <MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>
-                        ))}
-                    </Input>
-                    <FormHelperText id="standard-departure-point-helper-text">Departure Point</FormHelperText>
-                </FormControl>
-                <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
-                    <Input
-                        id="standard-adornment-travel-to"
-                        placeholder="Victoria Falls"
-                        value={values.travellingTo}
-                        onChange={handleChange('travellingTo')}
-                        endAdornment={<InputAdornment position="end"></InputAdornment>}
-                        aria-describedby="standard-arrival-point-helper-text"
-                        inputProps={{
-                            'aria-label': 'Arrival Point',
-                        }}
-                    />
-                    <FormHelperText id="standard-arrival-point-helper-text">Arrival Point</FormHelperText>
-                </FormControl>
-                <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
-                    <Input
-                        id="standard-adornment-amount"
-                        placeholder="2, 300"
-                        value={values.amount}
-                        onChange={handleChange('amount')}
-                        endAdornment={<InputAdornment position="end"></InputAdornment>}
-                        aria-describedby="standard-amount-helper-text"
-                        inputProps={{
-                            'aria-label': 'Amount',
-                        }}
-                    />
-                    <FormHelperText id="standard-amount-helper-text">Amount</FormHelperText>
-                </FormControl>
                 <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
                     <Input
                         id="standard-adornment-payment-method"
