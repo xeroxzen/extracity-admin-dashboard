@@ -188,7 +188,7 @@ export default function ReservationAdd() {
             let bookingTime = new Date();
 
             db
-                .collections("reservations")
+                .collection("reservations")
                 .add({
                     ID: id,
                     firstName: firstname,
