@@ -203,6 +203,7 @@ const drawerWidth = 300;
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
+    marginTop: 80,
   },
   paper: {
     width: "100%",

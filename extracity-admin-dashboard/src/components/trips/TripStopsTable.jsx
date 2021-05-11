@@ -76,7 +76,7 @@ function EnhancedTableHead(props) {
   };
 
   return (
-    <TableHead>
+    <TableHead className={classes.root}>
       <TableRow>
         <TableCell padding="checkbox">
           <Checkbox
@@ -201,6 +201,7 @@ const drawerWidth = 300;
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
+    marginTop: 80,
   },
   paper: {
     width: "100%",

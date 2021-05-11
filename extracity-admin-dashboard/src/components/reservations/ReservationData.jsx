@@ -1,9 +1,16 @@
 import React from "react";
 import firebase from "../../firebase.config";
 import ReservationInput from "./ReservationInput";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    marginTop: 80,
+  },
+}));
 
 export default function ReservationData() {
-  //reservation state
+  const classes = useStyles();
   const [reservations, setReservations] = React.useState([]);
   const [newReservation, setNewReservation] = React.useState();
 
@@ -22,7 +29,7 @@ export default function ReservationData() {
   };
 
   return (
-    <div>
+    <div className={classes.root}>
       <ol>
         <input
           value={newReservation}

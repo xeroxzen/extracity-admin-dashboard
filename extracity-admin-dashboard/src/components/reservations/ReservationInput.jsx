@@ -1,7 +1,16 @@
 import React from "react";
 import firebase from "../../firebase.config";
+import { makeStyles } from "@material-ui/core/styles";
+import classes from "*.module.css";
+
+const useStyles = makeStyles(theme => ({
+    root: {
+        marginTop: 80,
+    },
+}));
 
 const ReservationInput = ({ booking }) => {
+    const classes = useStyles()
     const [fullname, setFullname] = React.useState(booking.fullname);
     const [amount, setAmount] = React.useState(booking.Amount);
     const [bookingTime, setBookingTime] = React.useState(booking.BookingTime);
@@ -58,7 +67,7 @@ const ReservationInput = ({ booking }) => {
     }
 
     return (
-        <div>
+        <div className={classes.root}>
             {/* Fullname */}
             <input
                 value={fullname}
