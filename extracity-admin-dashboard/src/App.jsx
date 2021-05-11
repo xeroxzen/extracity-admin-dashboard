@@ -69,7 +69,7 @@ function App() {
               <div className={classes.root}>
                 <PrivateRoute exact path="/" component={Homepage} />
                 <PrivateRoute exact path='/reservations' component={Data} />
-                <PrivateRoute exact path='/reservations/add-reservation' component={AddReservation} />
+                <PrivateRoute exact path='/reservations/:id/add' component={AddReservation} />
                 <PrivateRoute exact path='/trips' component={Trips} />
                 <PrivateRoute exact path='/trips-grid' component={TripGrid} />
                 <PrivateRoute exact path='/trips/add' component={AddTrip} />

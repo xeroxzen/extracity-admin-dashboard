@@ -284,6 +284,7 @@ export default function ReservationAdd() {
                 </FormControl>
             </div>
             <div>
+
                 <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
                     <Input
                         id="standard-adornment-date"
@@ -327,6 +328,7 @@ export default function ReservationAdd() {
                     />
                     <FormHelperText id="standard-date-helper-text">Time of Travel</FormHelperText>
                 </FormControl>
+
                 <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
                     <Input
                         id="standard-adornment-payer-phone-number"

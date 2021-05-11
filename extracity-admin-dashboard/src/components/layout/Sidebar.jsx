@@ -22,6 +22,7 @@ import DirectionsBusIcon from "@material-ui/icons/DirectionsBus";
 import FlightIcon from '@material-ui/icons/Flight';
 // import PaymentIcon from "@material-ui/icons/Payment";
 import AirlineSeatReclineNormalSharpIcon from '@material-ui/icons/AirlineSeatReclineNormalSharp';
+import PaymentIcon from "@material-ui/icons/Payment";
 import AssessmentIcon from '@material-ui/icons/Assessment';
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
@@ -31,6 +32,8 @@ import ExpandMore from "@material-ui/icons/ExpandMore";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import SearchTripForm from "../reservations/SearchTripForm";
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 // import { ArrowRightTwoTone } from '@material-ui/icons';
 
 const drawerWidth = 240;
@@ -120,6 +123,7 @@ function ListItemLink(props) {
 }
 
 export default function Sidebar() {
+    const [modalShow, setModalShow] = React.useState(false);
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
@@ -229,6 +233,12 @@ export default function Sidebar() {
                 </div>
                 <Divider />
                 <List>
+                    <ListItem>
+                        <Button variant="contained" color="primary" onClick={() => setModalShow(true)}>
+                            <AddCircleIcon/>
+                            Add a reservation
+                        </Button>
+                    </ListItem>
                     <ListItemLink href="/">
                         <ListItemIcon>
                             <HomeIcon color="primary" />
@@ -244,13 +254,6 @@ export default function Sidebar() {
                         <ListItemText primary="Reservations" />
                     </ListItemLink>
                     <Divider />
-
-                    <ListItemLink href="/reservations/add-reservation">
-                        <ListItemIcon>
-                            <AirlineSeatReclineNormalSharpIcon color="primary" />
-                        </ListItemIcon>
-                        <ListItemText primary="Add Reservation" />
-                    </ListItemLink>
 
                     <Divider />
 
@@ -292,7 +295,18 @@ export default function Sidebar() {
                     </ListItemLink>
                     <Divider /> */}
                 </List>
+                <SearchTripForm
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+              />
             </Drawer>
         </div>
     );
 }
+
+// <ListItemLink href="/reservations/add-reservation">
+                    //     <ListItemIcon>
+                    //         <AirlineSeatReclineNormalSharpIcon color="primary" />
+                    //     </ListItemIcon>
+                    //     <ListItemText primary="Add Reservation" />
+                    // </ListItemLink>
