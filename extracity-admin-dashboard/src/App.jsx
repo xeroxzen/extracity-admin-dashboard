@@ -5,11 +5,11 @@ import Container from "@material-ui/core/Container";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import PrivateRoute from './PrivateRoute';
-import Reservations from './pages/reservations/Reservations'
+// import Reservations from './pages/reservations/Reservations'
 import AddReservation from './pages/reservations/AddReservation';
 import { AuthProvider } from "./contexts/AuthContext";
 import { login } from "./pages/accounts/login";
-import { register } from "./pages/accounts/register";
+// import { register } from "./pages/accounts/register";
 import Trips from './pages/trips/Trips';
 import AddTrip from './pages/trips/AddTrip';
 import TripStops from './pages/trips/TripStops';
@@ -67,7 +67,7 @@ function App() {
             <ThemeProvider theme={theme}>
               <div className={classes.root}>
                 <PrivateRoute exact path="/" component={Homepage} />
-                <PrivateRoute exact path='/reservations' component={Reservations} />
+                {/* <PrivateRoute exact path='/reservations' component={Reservations} /> */}
                 <PrivateRoute exact path='/reservations/add-reservation' component={AddReservation} />
                 <PrivateRoute exact path='/trips' component={Trips} />
                 <PrivateRoute exact path='/trips/add' component={AddTrip} />
@@ -81,7 +81,7 @@ function App() {
               </div>
               <div>
                 <Route exact path='/login' component={login} />
-                <Route exact path='/register' component={register} />
+                {/* <Route exact path='/register' component={register} /> */}
               </div>
             </ThemeProvider>
           </Container>
