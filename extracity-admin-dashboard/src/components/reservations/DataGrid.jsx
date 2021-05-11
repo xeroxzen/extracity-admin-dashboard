@@ -73,7 +73,7 @@ export default function DataTable() {
             <h3 style={{ marginBottom: 20, }}>Ticket Reservation List</h3> <Button
                 variant="contained"
                 color="primary"
-                href="/add-reservation"
+                href="/reservations/add-reservation"
                 className={classes.button}>Add Reservation</Button>
             <br />
             <DataGrid rows={reservations} columns={headCells} />

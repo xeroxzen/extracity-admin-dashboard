@@ -157,6 +157,7 @@ export default function InputAdornments() {
     return (
         <div className={classes.root}>
             <div>
+                <h3>New Reservation</h3>
 
                 <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
                     <Input
