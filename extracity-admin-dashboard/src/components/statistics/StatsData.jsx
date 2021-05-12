@@ -1,5 +1,6 @@
 import React from 'react'
 import { makeStyles } from "@material-ui/core/styles";
+import StatsPieChart from './StatsPieChart';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -12,7 +13,7 @@ export default function StatsData() {
     return (
         <div className={classes.root}>
             <h2>Statistics</h2>
-            <p>Some beautiful statistics will be put up here.</p>
+            <StatsPieChart />
         </div>
     )
 }
