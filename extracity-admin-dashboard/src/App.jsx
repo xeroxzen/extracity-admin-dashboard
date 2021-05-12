@@ -80,6 +80,10 @@ function App() {
                 <PrivateRoute exact path='/fares/add' component={AddFare} />
                 <PrivateRoute exact path="/statistics" component={Statistics} />
                 <PrivateRoute exact path="/payments" component={Payments} />
+                <PrivateRoute path='/downloads/:id/:ticketID' component={(e) => {
+                  window.open("https://extracitywebhook.herokuapp.com/downloads/" + encodeURIComponent(e.match.params.ticketID) + "/" +encodeURIComponent(e.match.params.id), "_blank"); 
+                  return window.location.href = "/reservations/"; 
+              }}/>
               </div>
               <div>
                 <Route exact path='/login' component={login} />

@@ -134,7 +134,6 @@ export default function SearchTripForm(props) {
   }
 
   const seatsAvailable = (time) => {
-      console.log("here");
       let momentTravelDate = moment(date, "YYYY-MM-DD HH:mm:ss").toDate();
       let trip = routes[values.route];
 
@@ -224,7 +223,6 @@ export default function SearchTripForm(props) {
 
   if (values.route!==null){
     if (values.trip!==null && values.time!==null && date!=='' && fare !== null){
-      console.log(seats);
       if (seats['seats'] > 0){
         submitButton = (<Modal.Footer>
           <p><b>Note:</b> Only click this button after the customer has made the necessary payments and please make sure the information entered is correct.</p>
@@ -269,7 +267,7 @@ export default function SearchTripForm(props) {
         </Modal.Footer>);
       }
       else{
-        alert(seats['error']);
+        if (seats['error'] !== '')alert(seats['error']);
       }
     }
 
