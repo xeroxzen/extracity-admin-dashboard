@@ -1,5 +1,6 @@
 {
   "name": "extracity-admin-dashboard",
+  "homepage": "https://www.extracityluxury.co.zw",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

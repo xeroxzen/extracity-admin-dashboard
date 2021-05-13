@@ -48,7 +48,7 @@ export default class StatsRotated extends React.PureComponent {
                         valueField="reservations"
                         argumentField="route"
                     />
-                    <Title text="Reservation Activity" />
+                    <Title style={{ backgroundColor: 'white' }} text="Reservation Activity" />
                     <Animation />
                 </Chart>
             </Paper>

@@ -49,6 +49,7 @@ export default class StatsTooltip extends React.PureComponent {
                         argumentField="route"
                     />
                     <Title
+                        style={{ backgroundColor: 'white' }}
                         text="Booking Reservations Activity"
                     />
                     <EventTracker />

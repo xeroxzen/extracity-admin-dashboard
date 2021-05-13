@@ -20,6 +20,7 @@ export default function ActivityChart() {
                 min.setDate(min.getDate() - x - 1);
                 var max = new Date();
                 max.setDate(max.getDate() - x);
+                // eslint-disable-next-line
                 activitiesRef = db.collection("reservations")
                     .where("BookingTime", ">", min)
                     .where("BookingTime", "<", max)

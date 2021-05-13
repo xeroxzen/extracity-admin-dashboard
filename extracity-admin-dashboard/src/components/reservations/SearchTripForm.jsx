@@ -140,10 +140,10 @@ export default function SearchTripForm(props) {
 
     db
       .collection("reservations")
-      .where("Trip", "===", trip.name)
-      .where("status", "===", "paid")
-      .where("Date", "===", momentTravelDate)
-      .where("TravelTime", "===", trip.times[time])
+      .where("Trip", "==", trip.name)
+      .where("status", "==", "paid")
+      .where("Date", "==", momentTravelDate)
+      .where("TravelTime", "==", trip.times[time])
       .get().then((refs) => {
         var paidCount = refs.size;
 
@@ -152,10 +152,10 @@ export default function SearchTripForm(props) {
 
         db
           .collection("reservations")
-          .where("Trip", "===", routes[values.route].name)
-          .where("status", "===", "pending")
-          .where("Date", "===", momentTravelDate)
-          .where("TravelTime", "===", routes[values.route].times[time])
+          .where("Trip", "==", routes[values.route].name)
+          .where("status", "==", "pending")
+          .where("Date", "==", momentTravelDate)
+          .where("TravelTime", "==", routes[values.route].times[time])
           .where("BookingTime", ">=", d)
           .get().then((refs) => {
             let pendingCount = refs.size;
