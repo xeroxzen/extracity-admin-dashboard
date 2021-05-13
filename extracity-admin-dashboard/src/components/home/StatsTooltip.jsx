@@ -12,13 +12,16 @@ import {
 import { EventTracker } from '@devexpress/dx-react-chart';
 
 const data = [
-    { year: 'January', population: 2.525 },
-    { year: 'February', population: 3.018 },
-    { year: 'March', population: 3.682 },
-    { year: 'April', population: 4.440 },
-    { year: 'May', population: 5.310 },
-    // { year: 'June', population: 6.127 },
-    // { year: '2010', population: 6.930 },
+    { route: 'Bulawayo', reservations: 2.525 },
+    { route: 'Harare', reservations: 3.018 },
+    { route: 'Victoria', reservations: 3.682 },
+    { route: 'Hwange', reservations: 4.440 },
+    { route: 'Kwekwe', reservations: 5.310 },
+    { route: 'kadoma', reservations: 6.127 },
+    { route: 'Chegutu', reservations: 6.930 },
+    { route: 'Chiredzi', reservations: 2.890 },
+    { route: 'Johannesburg', reservations: 5.890 },
+    { route: 'Mutare', reservations: 1.890 },
 ];
 
 export default class StatsTooltip extends React.PureComponent {
@@ -42,8 +45,8 @@ export default class StatsTooltip extends React.PureComponent {
                     <ValueAxis />
 
                     <BarSeries
-                        valueField="population"
-                        argumentField="year"
+                        valueField="reservations"
+                        argumentField="route"
                     />
                     <Title
                         text="Booking Reservations Activity"
