@@ -1,7 +1,7 @@
 import React from 'react'
 import { DataGrid } from '@material-ui/data-grid';
 import firebase from '../../firebase.config'
-import { makeStyles } from '@material-ui/core'
+import { Button, makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -55,6 +55,11 @@ export default function TripsGrid() {
     return (
         <div className={classes.root}>
             <h3 style={{ marginBottom: 20, }}>Trips</h3>
+            <Button
+                variant="contained"
+                color="primary"
+                href="/fares/add"
+                className={classes.button}>Add Fare</Button>
             <DataGrid rows={trips} columns={columns} />
         </div>
     )
