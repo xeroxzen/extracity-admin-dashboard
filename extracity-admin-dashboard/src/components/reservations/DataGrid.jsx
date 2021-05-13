@@ -2,8 +2,6 @@ import React from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import firebase from "../../firebase.config";
 import { makeStyles } from "@material-ui/core/styles";
-// import moment from 'moment'
-import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -71,12 +69,7 @@ export default function DataTable() {
     }, []);
     return (
         <div className={classes.root}>
-            <h3 style={{ marginBottom: 20, }}>Ticket Reservation List</h3> <Button
-                variant="contained"
-                color="primary"
-                href="/reservations/add-reservation"
-                className={classes.button}>Add Reservation</Button>
-            <br />
+            <h3 style={{ marginBottom: 20, }}>Ticket Reservation List</h3>
             <DataGrid rows={reservations} columns={headCells} />
         </div>
     );
