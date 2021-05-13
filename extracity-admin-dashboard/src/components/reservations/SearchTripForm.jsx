@@ -110,6 +110,7 @@ export default function SearchTripForm(props) {
       const timestamp = new Date();
       var seatNo = generateRandomSeatNumber();
       var refNo = generateRandomReferenceNumber();
+      let platform = 'Walk-in clients'
 
       db
         .collection("reservations")
@@ -126,6 +127,7 @@ export default function SearchTripForm(props) {
           BookingTime: timestamp,
           TravelTime: routes[values.route].times[values.time],
           Date: momentTravelDate,
+          platform: platform,
           seatNo: seatNo,
           refNo: refNo,
         })

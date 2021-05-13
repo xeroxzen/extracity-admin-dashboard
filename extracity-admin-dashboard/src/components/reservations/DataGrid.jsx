@@ -22,7 +22,7 @@ const headCells = [
         sortable: false,
         width: 160,
         valueGetter: (params) =>
-            `${params.row.fullname}`,
+            `${params.row.firstName}  ${params.row.lastName}`,
     },
     { field: "PhoneNumber", headerName: "PHONE #", width: 130 },
     { field: "Trip", headerName: "TRIP", width: 170 },
