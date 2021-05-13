@@ -23,7 +23,7 @@ export default function Home() {
     return (
         <div className={classes.root}>
             {/* <h2>Home</h2> */}
-            <h2 style={{ fontFamily: 'Roboto' }}>Infographic Elements</h2>
+            <h2 style={{ fontFamily: 'Roboto' }}>Infographic Data</h2>
             <StatsRotated />
             <hr />
             <StatsTooltip />

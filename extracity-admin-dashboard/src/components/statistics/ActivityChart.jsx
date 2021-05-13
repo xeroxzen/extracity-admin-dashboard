@@ -1,109 +1,92 @@
-import * as React from 'react';
-import Paper from '@material-ui/core/Paper';
-import {
-    Chart,
-    ArgumentAxis,
-    ValueAxis,
-    LineSeries,
-    ZoomAndPan,
-} from '@devexpress/dx-react-chart-material-ui';
-import { scaleTime } from 'd3-scale';
-import { ArgumentScale } from '@devexpress/dx-react-chart';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+import React from 'react';
+import moment from 'moment';
+import firebase from 'firebase';
+import { Line } from "react-chartjs-2";
 
-const generateData = (n) => {
-    const ret = [];
-    let y = 0;
-    const dt = new Date(2017, 2, 10);
-    for (let i = 0; i < n; i += 1) {
-        dt.setDate(dt.getDate() + 1);
-        y += Math.round(Math.random() * 10 - 5);
-        ret.push({ x: new Date(dt), y });
-    }
-    return ret;
-};
-const data = generateData(100);
+export default function ActivityChart() {
+    const [activityData, setActivityData] = React.useState([]);
+    const [labels, setLabels] = React.useState([]);
 
-const getMode = (zoom, pan) => {
-    if (zoom && pan) {
-        return 'both';
-    }
-    if (zoom && !pan) {
-        return 'zoom';
-    }
-    if (!zoom && pan) {
-        return 'pan';
-    }
-    return 'none';
-};
+    React.useEffect(() => {
+        const fetchStats = async () => {
+            const db = firebase.firestore();
+            let activitiesRef;
+            let dates = [];
 
-const chartRootStyle = { marginRight: '20px' };
-const inputsContainerStyle = { justifyContent: 'center' };
-
-const ChartRoot = props => (
-    <Chart.Root {...props} style={chartRootStyle} />
-);
-
-export default class ActivityChart extends React.PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            data,
-            zoomArgument: false,
-            panArgument: true,
-            zoomValue: false,
-            panValue: false,
+            for (var x = 6; x >= 0; x--) {
+                var minDate = new moment().subtract(x, "days");
+                dates.push(minDate.format('ddd'));
+                var min = new Date();
+                min.setDate(min.getDate() - x - 1);
+                var max = new Date();
+                max.setDate(max.getDate() - x);
+                activitiesRef = db.collection("reservations")
+                    .where("BookingTime", ">", min)
+                    .where("BookingTime", "<", max)
+                    .get()
+                    .then((snapshot) => {
+                        setActivityData(state => [...state, snapshot.size]);
+                    });
+            }
+            setLabels(dates);
         };
-        this.submit = e => this.setState({
-            [e.target.id]: e.target.checked,
-        });
-    }
+        fetchStats();
+    }, []);
 
-    renderInput(id, label) {
-        const { [id]: checked } = this.state;
-        return (
-            <FormControlLabel
-                control={(
-                    <Checkbox
-                        id={id}
-                        checked={checked}
-                        onChange={this.submit}
-                        value="checkedB"
-                        color="primary"
-                    />
-                )}
-                label={label}
-            />
-        );
-    }
+    const data = {
+        labels: labels,
+        datasets: [
+            {
+                label: "No. of seat reservations",
+                fill: true,
+                backgroundColor: "#04e7ff",
+                borderColor: "#04e7ff",
+                data: activityData,
+                borderWidth: 1,
+                pointRadius: 0,
+            }
+        ],
+    };
 
-    render() {
-        const {
-            data: chartData, zoomValue, panValue, zoomArgument, panArgument,
-        } = this.state;
-        return (
-            <Paper style={{ backgroundColor: "#003c6c" }}>
-                <Chart data={chartData} rootComponent={ChartRoot}>
-                    <ArgumentScale factory={scaleTime} />
-                    <ArgumentAxis />
-                    <ValueAxis />
-
-                    <LineSeries valueField="y" argumentField="x" />
-                    <ZoomAndPan
-                        interactionWithArguments={getMode(zoomArgument, panArgument)}
-                        interactionWithValues={getMode(zoomValue, panValue)}
-                    />
-                </Chart>
-                <FormGroup style={inputsContainerStyle} row>
-                    {this.renderInput('zoomArgument', 'Zoom argument')}
-                    {this.renderInput('panArgument', 'Pan argument')}
-                    {this.renderInput('zoomValue', 'Zoom value')}
-                    {this.renderInput('panValue', 'Pan value')}
-                </FormGroup>
-            </Paper>
-        );
-    }
+    return (
+        <Line
+            height={200}
+            data={data}
+            style={{
+                backgroundColor: '#003c6c'
+            }}
+            options={{
+                responsive: true,
+                title: {
+                    display: true,
+                    text: "Activity for the past 7 days",
+                    fontSize: 17,
+                    fontColor: "white",
+                    padding: 10,
+                },
+                legend: {
+                    display: false,
+                    position: "right",
+                },
+                scales: {
+                    yAxes: [
+                        {
+                            ticks: {
+                                fontColor: "white",
+                                beginAtZero: true,
+                                stepSize: 1
+                            },
+                        },
+                    ],
+                    xAxes: [
+                        {
+                            ticks: {
+                                fontColor: "white",
+                            },
+                        },
+                    ],
+                },
+            }}
+        />
+    )
 }
