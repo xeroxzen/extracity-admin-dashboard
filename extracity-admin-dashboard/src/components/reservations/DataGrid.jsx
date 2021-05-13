@@ -31,7 +31,7 @@ const headCells = [
     }, //moment().startOf('day').fromNow(); 
     { field: "TravelTime", headerName: "TIME", width: 110 },
     // { field: "Email", headerName: "EMAIL", width: 130 },
-    { field: "Amount", headerName: "AMOUNT", width: 110 },
+    { field: "Amount", headerName: "AMOUNT", width: 110, valueGetter: params => `${params.row.Currency} ${params.row.Amount}` },
     // {
     //     field: "PaymentMethod",
     //     headerName: "PAYMENT METHOD",
