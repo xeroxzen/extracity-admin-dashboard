@@ -106,7 +106,7 @@ export default function SearchTripForm(props) {
       const id = uuidv4();
       var ticketId = ticketID();
       let arr = routes[values.route].possibleTrips[values.trip].split('-');
-      let momentTravelDate = moment(date, "YYYY-MM-DD HH:mm:ss").toDate();
+      let momentTravelDate = moment(date, "YYYY-MM-DD").toDate();
       const timestamp = new Date();
       var seatNo = generateRandomSeatNumber();
       var refNo = generateRandomReferenceNumber();
@@ -137,7 +137,7 @@ export default function SearchTripForm(props) {
   }
 
   const seatsAvailable = (time) => {
-    let momentTravelDate = moment(date, "YYYY-MM-DD HH:mm:ss").toDate();
+    let momentTravelDate = moment(date, "YYYY-MM-DD").toDate();
     let trip = routes[values.route];
 
     db
