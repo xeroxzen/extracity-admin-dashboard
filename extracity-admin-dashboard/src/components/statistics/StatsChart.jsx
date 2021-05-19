@@ -91,7 +91,7 @@ export default function StatsChart() {
                     padding: 10,
                 },
                 legend: {
-                    display: false,
+                    display: true,
                     position: "right",
                 },
                 scales: {

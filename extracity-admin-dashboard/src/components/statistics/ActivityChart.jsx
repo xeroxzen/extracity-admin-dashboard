@@ -56,7 +56,7 @@ export default function ActivityChart() {
                     .then((snapshot) => {
                         byoTotal += snapshot.size;
                         setByoData(state => [...state, byoTotal]);
-                    });
+                    }, []);
                 //harare
                 let harareTotal = 0;
                 // eslint-disable-next-line
@@ -67,7 +67,7 @@ export default function ActivityChart() {
                     .then((snapshot) => {
                         harareTotal += snapshot.size;
                         setHarareData(state => [...state, harareTotal]);
-                    });
+                    }, []);
                 //vicfalls
                 let vicfallsTotal = 0;
                 // eslint-disable-next-line
@@ -78,7 +78,7 @@ export default function ActivityChart() {
                     .then((snapshot) => {
                         vicfallsTotal += snapshot.size;
                         setVicfallsData(state => [...state, vicfallsTotal]);
-                    });
+                    }, []);
                 //gweru
                 let gweruTotal = 0;
                 // eslint-disable-next-line
@@ -89,7 +89,7 @@ export default function ActivityChart() {
                     .then((snapshot) => {
                         gweruTotal += snapshot.size;
                         setGweruData(state => [...state, gweruTotal]);
-                    });
+                    }, []);
                 //kwekwe
                 let kwekweTotal = 0;
                 // eslint-disable-next-line
@@ -100,7 +100,7 @@ export default function ActivityChart() {
                     .then((snapshot) => {
                         kwekweTotal += snapshot.size;
                         setKwekweData(state => [...state, kwekweTotal]);
-                    });
+                    }, []);
                 //kadoma
                 let kadomaTotal = 0;
                 // eslint-disable-next-line
@@ -111,7 +111,7 @@ export default function ActivityChart() {
                     .then((snapshot) => {
                         kadomaTotal += snapshot.size;
                         setKadomaData(state => [...state, kadomaTotal]);
-                    });
+                    }, []);
                 //chegutu
                 let chegutuTotal = 0;
                 // eslint-disable-next-line
@@ -122,7 +122,7 @@ export default function ActivityChart() {
                     .then((snapshot) => {
                         chegutuTotal += snapshot.size;
                         setChegutuData(state => [...state, chegutuTotal]);
-                    });
+                    }, []);
                 //hwange
                 let hwangeTotal = 0;
                 // eslint-disable-next-line
@@ -133,7 +133,7 @@ export default function ActivityChart() {
                     .then((snapshot) => {
                         hwangeTotal += snapshot.size;
                         setHwangeData(state => [...state, hwangeTotal]);
-                    });
+                    }, []);
             }
             setLabels(dates);
         };
