@@ -49,8 +49,8 @@ export default function ActivityChart() {
                 // eslint-disable-next-line
                 byo = db.collection("reservations")
                     .where("TravellingFrom", "==", "Bulawayo")
-                    .where("BookingTime", ">", min)
-                    .where("BookingTime", "<", max)
+                    // .where("BookingTime", ">", min)
+                    // .where("BookingTime", "<", max)
                     .get()
                     .then((snapshot) => {
                         setByoData(state => [...state, snapshot.size]);
@@ -59,8 +59,8 @@ export default function ActivityChart() {
                 // eslint-disable-next-line
                 hre = db.collection("reservations")
                     .where("TravellingFrom", "==", "Harare")
-                    .where("BookingTime", ">", min)
-                    .where("BookingTime", "<", max)
+                    // .where("BookingTime", ">", min)
+                    // .where("BookingTime", "<", max)
                     // .where("BookingTime", "<", max)
                     .get()
                     .then((snapshot) => {
@@ -70,8 +70,8 @@ export default function ActivityChart() {
                 // eslint-disable-next-line
                 vicfalls = db.collection("reservations")
                     .where("TravellingFrom", "==", "Victoria Falls")
-                    .where("BookingTime", ">", min)
-                    .where("BookingTime", "<", max)
+                    // .where("BookingTime", ">", min)
+                    // .where("BookingTime", "<", max)
                     // .where("BookingTime", "<", max)
                     .get()
                     .then((snapshot) => {
@@ -81,8 +81,8 @@ export default function ActivityChart() {
                 // eslint-disable-next-line
                 gweru = db.collection("reservations")
                     .where("TravellingFrom", "==", "Gweru")
-                    .where("BookingTime", ">", min)
-                    .where("BookingTime", "<", max)
+                    // .where("BookingTime", ">", min)
+                    // .where("BookingTime", "<", max)
                     // .where("BookingTime", "<", max)
                     .get()
                     .then((snapshot) => {
@@ -92,8 +92,8 @@ export default function ActivityChart() {
                 // eslint-disable-next-line
                 kwekwe = db.collection("reservations")
                     .where("TravellingFrom", "==", "Kwekwe")
-                    .where("BookingTime", ">", min)
-                    .where("BookingTime", "<", max)
+                    // .where("BookingTime", ">", min)
+                    // .where("BookingTime", "<", max)
                     // .where("BookingTime", "<", max)
                     .get()
                     .then((snapshot) => {
@@ -103,8 +103,8 @@ export default function ActivityChart() {
                 // eslint-disable-next-line
                 kadoma = db.collection("reservations")
                     .where("TravellingFrom", "==", "Kadoma")
-                    .where("BookingTime", ">", min)
-                    .where("BookingTime", "<", max)
+                    // .where("BookingTime", ">", min)
+                    // .where("BookingTime", "<", max)
                     // .where("BookingTime", "<", max)
                     .get()
                     .then((snapshot) => {
@@ -114,8 +114,8 @@ export default function ActivityChart() {
                 // eslint-disable-next-line
                 chegutu = db.collection("reservations")
                     .where("TravellingFrom", "==", "Chegutu")
-                    .where("BookingTime", ">", min)
-                    .where("BookingTime", "<", max)
+                    // .where("BookingTime", ">", min)
+                    // .where("BookingTime", "<", max)
                     // .where("BookingTime", "<", max)
                     .get()
                     .then((snapshot) => {
@@ -125,8 +125,8 @@ export default function ActivityChart() {
                 // eslint-disable-next-line
                 hwange = db.collection("reservations")
                     .where("TravellingFrom", "==", "Hwange")
-                    .where("BookingTime", ">", min)
-                    .where("BookingTime", "<", max)
+                    // .where("BookingTime", ">", min)
+                    // .where("BookingTime", "<", max)
                     // .where("BookingTime", "<", max)
                     .get()
                     .then((snapshot) => {
@@ -207,7 +207,7 @@ export default function ActivityChart() {
             data={data}
             style={{
                 backgroundColor: '#003c6c',
-                color: '#fff'
+                fontColor: '#fff'
             }}
             options={{
                 responsive: true,
