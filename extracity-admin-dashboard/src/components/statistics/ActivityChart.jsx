@@ -37,100 +37,102 @@ export default function ActivityChart() {
                 min.setDate(min.getDate() - x - 1);
                 var max = new Date();
                 max.setDate(max.getDate() - x);
+                let activitiesTotal = 0;
                 // eslint-disable-next-line
                 activitiesRef = db.collection("reservations")
-                    .where('BookingTime', '>', min)
-                    .where('BookingTime', '<', max)
+                    .where('BookingTime', '>', min).where('BookingTime', '<', max)
                     .get()
                     .then(snapshot => {
-                        setActivityData(state => [...state, snapshot.size]);
+                        activitiesTotal += snapshot.size;
+                        setActivityData(state => [...state, activitiesTotal]);
                     }, []);
 
+                let byoTotal = 0;
                 // eslint-disable-next-line
                 byo = db.collection("reservations")
-                    .where("TravellingFrom", "==", "Bulawayo")
-                    // .where("BookingTime", ">", min)
-                    // .where("BookingTime", "<", max)
+                    .where("TravellingFrom", "==", "Bulawayo").where("status", "==", "paid").where('BookingTime', '>', min).where('BookingTime', '<', max)
+
                     .get()
                     .then((snapshot) => {
-                        setByoData(state => [...state, snapshot.size]);
+                        byoTotal += snapshot.size;
+                        setByoData(state => [...state, byoTotal]);
                     });
                 //harare
+                let harareTotal = 0;
                 // eslint-disable-next-line
                 hre = db.collection("reservations")
-                    .where("TravellingFrom", "==", "Harare")
-                    // .where("BookingTime", ">", min)
-                    // .where("BookingTime", "<", max)
-                    // .where("BookingTime", "<", max)
+                    .where("TravellingFrom", "==", "Harare").where("status", "==", "paid").where('BookingTime', '>', min).where('BookingTime', '<', max)
+
                     .get()
                     .then((snapshot) => {
-                        setHarareData(state => [...state, snapshot.size]);
+                        harareTotal += snapshot.size;
+                        setHarareData(state => [...state, harareTotal]);
                     });
                 //vicfalls
+                let vicfallsTotal = 0;
                 // eslint-disable-next-line
                 vicfalls = db.collection("reservations")
-                    .where("TravellingFrom", "==", "Victoria Falls")
-                    // .where("BookingTime", ">", min)
-                    // .where("BookingTime", "<", max)
-                    // .where("BookingTime", "<", max)
+                    .where("TravellingFrom", "==", "Victoria Falls").where("status", "==", "paid").where('BookingTime', '>', min).where('BookingTime', '<', max)
+
                     .get()
                     .then((snapshot) => {
-                        setVicfallsData(state => [...state, snapshot.size]);
+                        vicfallsTotal += snapshot.size;
+                        setVicfallsData(state => [...state, vicfallsTotal]);
                     });
                 //gweru
+                let gweruTotal = 0;
                 // eslint-disable-next-line
                 gweru = db.collection("reservations")
-                    .where("TravellingFrom", "==", "Gweru")
-                    // .where("BookingTime", ">", min)
-                    // .where("BookingTime", "<", max)
-                    // .where("BookingTime", "<", max)
+                    .where("TravellingFrom", "==", "Gweru").where("status", "==", "paid").where('BookingTime', '>', min).where('BookingTime', '<', max)
+
                     .get()
                     .then((snapshot) => {
-                        setGweruData(state => [...state, snapshot.size]);
+                        gweruTotal += snapshot.size;
+                        setGweruData(state => [...state, gweruTotal]);
                     });
                 //kwekwe
+                let kwekweTotal = 0;
                 // eslint-disable-next-line
                 kwekwe = db.collection("reservations")
-                    .where("TravellingFrom", "==", "Kwekwe")
-                    // .where("BookingTime", ">", min)
-                    // .where("BookingTime", "<", max)
-                    // .where("BookingTime", "<", max)
+                    .where("TravellingFrom", "==", "Kwekwe").where("status", "==", "paid").where('BookingTime', '>', min).where('BookingTime', '<', max)
+
                     .get()
                     .then((snapshot) => {
-                        setKwekweData(state => [...state, snapshot.size]);
+                        kwekweTotal += snapshot.size;
+                        setKwekweData(state => [...state, kwekweTotal]);
                     });
                 //kadoma
+                let kadomaTotal = 0;
                 // eslint-disable-next-line
                 kadoma = db.collection("reservations")
-                    .where("TravellingFrom", "==", "Kadoma")
-                    // .where("BookingTime", ">", min)
-                    // .where("BookingTime", "<", max)
-                    // .where("BookingTime", "<", max)
+                    .where("TravellingFrom", "==", "Kadoma").where("status", "==", "paid").where('BookingTime', '>', min).where('BookingTime', '<', max)
+
                     .get()
                     .then((snapshot) => {
-                        setKadomaData(state => [...state, snapshot.size]);
+                        kadomaTotal += snapshot.size;
+                        setKadomaData(state => [...state, kadomaTotal]);
                     });
                 //chegutu
+                let chegutuTotal = 0;
                 // eslint-disable-next-line
                 chegutu = db.collection("reservations")
-                    .where("TravellingFrom", "==", "Chegutu")
-                    // .where("BookingTime", ">", min)
-                    // .where("BookingTime", "<", max)
-                    // .where("BookingTime", "<", max)
+                    .where("TravellingFrom", "==", "Chegutu").where("status", "==", "paid").where('BookingTime', '>', min).where('BookingTime', '<', max)
+
                     .get()
                     .then((snapshot) => {
-                        setChegutuData(state => [...state, snapshot.size]);
+                        chegutuTotal += snapshot.size;
+                        setChegutuData(state => [...state, chegutuTotal]);
                     });
-                //chegutu
+                //hwange
+                let hwangeTotal = 0;
                 // eslint-disable-next-line
                 hwange = db.collection("reservations")
-                    .where("TravellingFrom", "==", "Hwange")
-                    // .where("BookingTime", ">", min)
-                    // .where("BookingTime", "<", max)
-                    // .where("BookingTime", "<", max)
+                    .where("TravellingFrom", "==", "Hwange").where("status", "==", "paid").where('BookingTime', '>', min).where('BookingTime', '<', max)
+
                     .get()
                     .then((snapshot) => {
-                        setHwangeData(state => [...state, snapshot.size]);
+                        hwangeTotal += snapshot.size;
+                        setHwangeData(state => [...state, hwangeTotal]);
                     });
             }
             setLabels(dates);
