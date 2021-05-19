@@ -29,7 +29,9 @@ export default function FareCreateForm(props) {
     if (to === undefined || to === "" || from === undefined || from === "" || prices === undefined || prices.length === 0) alert("Please fill in all input fields!");
     else {
       let id = uuid();
-      console.log(prices);
+      
+      let possibleTrips = [`${to}-${from}`, `${from}-${to}`];
+      let cities = [to,from];
 
       //save
       db
@@ -39,6 +41,8 @@ export default function FareCreateForm(props) {
           to: to,
           from: from,
           prices: Object.fromEntries(prices),
+          possibleTrips: possibleTrips,
+          cities: cities,
           date: new Date(),
         })
         .then(

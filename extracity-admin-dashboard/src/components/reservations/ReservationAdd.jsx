@@ -70,6 +70,10 @@ export default function ReservationAdd() {
             alert('Please fill in all input fields.')
         }
         else {
+
+            // let indexes = Array.from(new Map(Object.entries(values)).values());
+            // indexes = [...indexes.concat(Array.from(new Map(Object.entries(reservation)).values()))];
+
             db
                 .collection("reservations")
                 .doc(id)
@@ -80,6 +84,7 @@ export default function ReservationAdd() {
                     Email: values.email,
                     PhoneNumber: values.phoneNumber,
                     PaymentMethod: values.paymentMethod,
+                    //indexes: indexes.join(" ")
                 })
                 .then(ref => history.push("/downloads/" + id + "/" + encodeURIComponent(reservation.TicketID))
                 ).catch(

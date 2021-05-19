@@ -50,9 +50,9 @@ export default function DataTable() {
     const [reservations, setReservations] = React.useState([]);
     const [routes, setRoutes] = React.useState([]);
     const [values, setValues] = React.useState({
-        route: 0,
-        trip: 0,
-        time: 0,
+        route: '',
+        trip: '',
+        time: '',
         from: '',
         to: '',
         search: '',
@@ -61,7 +61,9 @@ export default function DataTable() {
 
     const handleChange = (prop, value) => {
         setValues({ ...values, [prop]: value });
-        fetchReservations(null, prop, value);
+        if (prop !== 'search' || (prop === 'search' && (value.length > 14 || value.length === 0))){
+            fetchReservations(null,prop,value);
+        }
     }
 
     const handleTo = (value) => {
@@ -121,7 +123,7 @@ export default function DataTable() {
         }
 
         const data = db.collection('reservations');
-        let queryRef = data.where('status', '==', 'paid');
+        let queryRef = data.where('status', '==', 'paid').orderBy('Date');
 
         if (route !== '' && rts[route] !== undefined) {
             queryRef = queryRef.where("Trip", "==", rts[route]?.name);
@@ -134,20 +136,29 @@ export default function DataTable() {
 
             if (time !== '' && rts[route].times[time] !== undefined) queryRef = queryRef.where("TravelTime", "==", rts[route]?.times[time]);
         }
-        console.log(from, to);
-        if (from !== '' && from !== null && from !== undefined && from === to) {
-            console.log('heer');
+
+        if (from !== '' && from !== null && from !== undefined && to !== '' && to !== null && to !== undefined && from.toDateString() === to.toDateString()){
             let min = moment(from, "YYYY-MM-DD").toDate();
-            min.setDays(min.getDays() - 1);
-            let max = moment(from, "YYYY-MM-DD").toDate();
-            max.setDays(max.getDays() + 1);
+            min.setDate(min.getDate() - 1);
+            let max = moment(to, "YYYY-MM-DD").toDate();
+            max.setDate(max.getDate() + 1);
 
             queryRef = queryRef.where("Date", ">", min).where("Date", "<", max);
         }
-        else {
-            if (from !== '' && from !== null && from !== undefined) queryRef = queryRef.where("Date", ">=", moment(from, "YYYY-MM-DD").toDate());
-            if (to !== '' && to !== null && to !== undefined) queryRef = queryRef.where("Date", "<=", moment(to, "YYYY-MM-DD").toDate());
+        else{
+            if (from !== '' && from !== null && from !== undefined)queryRef = queryRef.where("Date", ">=", moment(from, "YYYY-MM-DD").toDate());
+            if (to !== '' && to !== null && to !== undefined){
+                let max = moment(to, "YYYY-MM-DD").toDate();
+                max.setDate(max.getDate() + 1);
+
+                queryRef = queryRef.where("Date", "<", max);
+            }
         }
+
+        if (search !== '' && search !== undefined){
+            queryRef = queryRef.where('TicketID', '==', search.toUpperCase().replace('X','x'))
+        }
+
         const query = await queryRef.get();
         console.log(query.size);
         if (query.empty) {
@@ -249,20 +260,20 @@ export default function DataTable() {
                     <Grid container justify="left" spacing={1}>
                         <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
                             <Input
-                                id="standard-adornment-search"
-                                placeholder="Search..."
-                                value={values.search}
-                                required
-                                onChange={(e) => handleChange('search', e.target.value)}
-                                endAdornment={<InputAdornment position="end"></InputAdornment>}
-                                aria-describedby="standard-payment-reference-helper-text"
-                                inputProps={{
-                                    'aria-label': 'Search',
-                                }}
+                              id="standard-adornment-search"
+                              placeholder="Search..."
+                              value={values.search}
+                              required
+                              onChange={(e) => handleChange('search', e.target.value)}
+                              endAdornment={<InputAdornment position="end"></InputAdornment>}
+                              aria-describedby="standard-payment-reference-helper-text"
+                              inputProps={{
+                                'aria-label': 'Ticket ID',
+                              }}
                             >
                             </Input>
-                            <FormHelperText id="standard-search-helper-text">Search</FormHelperText>
-                        </FormControl>
+                            <FormHelperText id="standard-search-helper-text">Search using Ticket ID</FormHelperText>
+                          </FormControl>
                     </Grid>
                 </Grid>
             </Grid>
