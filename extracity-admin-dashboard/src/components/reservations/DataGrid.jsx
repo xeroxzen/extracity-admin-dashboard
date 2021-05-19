@@ -142,19 +142,22 @@ export default function DataTable() {
 
             if (time !== '' && rts[route].times[time] !== undefined)queryRef = queryRef.where("TravelTime","==",rts[route]?.times[time]);
         }
-        console.log(from,to);
-        if (from !== '' && from !== null && from !== undefined && from === to){
-            console.log('heer');
+
+        if (from !== '' && from !== null && from !== undefined && to !== '' && to !== null && to !== undefined && from.toDateString() === to.toDateString()){
             let min = moment(from, "YYYY-MM-DD").toDate();
-            min.setDays(min.getDays() - 1);
-            let max = moment(from, "YYYY-MM-DD").toDate();
-            max.setDays(max.getDays() + 1);
+            min.setDate(min.getDate() - 1);
+            let max = moment(to, "YYYY-MM-DD").toDate();
+            max.setDate(max.getDate() + 1);
 
             queryRef = queryRef.where("Date", ">", min).where("Date","<",max);
         }
         else{
             if (from !== '' && from !== null && from !== undefined)queryRef = queryRef.where("Date", ">=", moment(from, "YYYY-MM-DD").toDate());
-            if (to !== '' && to !== null && to !== undefined)queryRef = queryRef.where("Date", "<=", moment(to, "YYYY-MM-DD").toDate());
+            if (to !== '' && to !== null && to !== undefined){
+                let max = moment(to, "YYYY-MM-DD").toDate();
+                max.setDate(max.getDate() + 1);
+                queryRef = queryRef.where("Date", "<=", max);
+            }
         }
         const query = await queryRef.get();
         console.log(query.size);
