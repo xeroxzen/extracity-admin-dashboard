@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/core'
 import React from 'react'
-import StatsRotated from './StatsRotated';
-import StatsTooltip from './StatsTooltip';
+import DataTable from '../reservations/DataGrid';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -22,11 +21,7 @@ export default function Home() {
 
     return (
         <div className={classes.root}>
-            {/* <h2>Home</h2> */}
-            <h2 style={{ fontFamily: 'Roboto' }}>Infographic Data</h2>
-            <StatsRotated />
-            <hr />
-            <StatsTooltip />
+            <DataTable />
         </div>
     )
 }
