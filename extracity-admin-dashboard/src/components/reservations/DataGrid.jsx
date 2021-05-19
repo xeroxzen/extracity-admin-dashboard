@@ -156,7 +156,6 @@ export default function DataTable() {
         }
 
         if (search !== '' && search !== undefined){
-            search = "ExC-20210519-393";
             queryRef = queryRef.where('TicketID', '==', search.toUpperCase().replace('X','x'))
         }
 
