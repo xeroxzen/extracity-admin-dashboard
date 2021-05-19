@@ -64,9 +64,9 @@ export default function DataTable() {
     const [reservations, setReservations] = React.useState([]);
     const [routes, setRoutes] = React.useState([]);
     const [values, setValues] = React.useState({
-        route: 0,
-        trip: 0,
-        time: 0,
+        route: '',
+        trip: '',
+        time: '',
         from: '',
         to: '',
         search: '',
@@ -75,7 +75,9 @@ export default function DataTable() {
 
     const handleChange = (prop,value) => {
         setValues({ ...values, [prop]: value });
-        fetchReservations(null,prop,value);
+        if (prop !== 'search' || (prop === 'search' && (value.length > 14 || value.length === 0))){
+            fetchReservations(null,prop,value);
+        }
     }
 
     const handleTo = (value) => {
@@ -129,7 +131,7 @@ export default function DataTable() {
         }
 
         const data = db.collection('reservations');
-        let queryRef = data.where('status', '==', 'paid');
+        let queryRef = data.where('status', '==', 'paid').orderBy('Date');
 
         if (route !== '' && rts[route] !== undefined){
             queryRef = queryRef.where("Trip","==",rts[route]?.name);
@@ -156,9 +158,16 @@ export default function DataTable() {
             if (to !== '' && to !== null && to !== undefined){
                 let max = moment(to, "YYYY-MM-DD").toDate();
                 max.setDate(max.getDate() + 1);
-                queryRef = queryRef.where("Date", "<=", max);
+
+                queryRef = queryRef.where("Date", "<", max);
             }
         }
+
+        if (search !== '' && search !== undefined){
+            search = "ExC-20210519-393";
+            queryRef = queryRef.where('TicketID', '==', search.toUpperCase().replace('X','x'))
+        }
+
         const query = await queryRef.get();
         console.log(query.size);
         if (query.empty) {
@@ -267,11 +276,11 @@ export default function DataTable() {
                               endAdornment={<InputAdornment position="end"></InputAdornment>}
                               aria-describedby="standard-payment-reference-helper-text"
                               inputProps={{
-                                'aria-label': 'Search',
+                                'aria-label': 'Ticket ID',
                               }}
                             >
                             </Input>
-                            <FormHelperText id="standard-search-helper-text">Search</FormHelperText>
+                            <FormHelperText id="standard-search-helper-text">Search using Ticket ID</FormHelperText>
                           </FormControl>
                     </Grid>
                 </Grid>

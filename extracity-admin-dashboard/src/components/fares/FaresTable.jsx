@@ -232,14 +232,29 @@ export default function FaresTable() {
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
   //fares state
   const [fares, setfares] = React.useState([]);
+  const [cities, setCities] = React.useState([]);
+
+  const updateCities(str1, str2){
+    let arr = [...cities];
+
+    if (arr.indexOf(str1) === -1)arr.push(str1);
+    if (arr.indexOf(str2) === -1)arr.push(str2);
+
+    setCities([...arr]);
+  }
 
   React.useEffect(() => {
     const fetchfares = async () => {
       const db = firebase.firestore();
       const data = await db.collection("fares").get();
-      setfares(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setfares(data.docs.map((doc) => {
+        let fare = doc.data();
+        if(cities.length === 0)updateCities(fare.from, fare.to);
+        return { ...fare, id: doc.id }
+      });
     };
     fetchfares();
   }, []);
@@ -301,6 +316,7 @@ export default function FaresTable() {
   const emptyRows =
     rowsPerPage -
     Math.min(rowsPerPage, fares.length - page * rowsPerPage);
+    console.log(cities);
 
   return (
     <div className={classes.root}>
