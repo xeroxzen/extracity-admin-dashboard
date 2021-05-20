@@ -333,7 +333,7 @@ export default function TripsTable() {
                   const trip = tripRef.data();
                   const isItemSelected = isSelected(trip.id);
                   const labelId = `enhanced-table-checkbox-${index}`;
-                  var link = `/trips/${tripRef.id}/stops`;
+                  let link = `/trips/${tripRef.id}/stops`;
 
                   return (
                     <TableRow

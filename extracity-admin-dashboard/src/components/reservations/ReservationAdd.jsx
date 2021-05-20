@@ -6,10 +6,10 @@ import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
-import { Button, MenuItem } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import firebase from "../../firebase.config";
 import ConfirmReservation from './ConfirmReservation';
-const { uuid } = require("uuidv4");
+// const { uuid } = require("uuidv4");
 // eslint-disable-next-line
 // import firebase from "../../firebase.config";
 
@@ -70,6 +70,10 @@ export default function ReservationAdd() {
             alert('Please fill in all input fields.')
         }
         else {
+
+            // let indexes = Array.from(new Map(Object.entries(values)).values());
+            // indexes = [...indexes.concat(Array.from(new Map(Object.entries(reservation)).values()))];
+
             db
                 .collection("reservations")
                 .doc(id)
@@ -80,6 +84,7 @@ export default function ReservationAdd() {
                     Email: values.email,
                     PhoneNumber: values.phoneNumber,
                     PaymentMethod: values.paymentMethod,
+                    //indexes: indexes.join(" ")
                 })
                 .then(ref => history.push("/downloads/" + id + "/" + encodeURIComponent(reservation.TicketID))
                 ).catch(
@@ -89,7 +94,7 @@ export default function ReservationAdd() {
 
     }
 
-    if (reservation !== null){
+    if (reservation !== null) {
         return (
             <div>
                 <form className={classes.root}>
@@ -162,12 +167,12 @@ export default function ReservationAdd() {
                     </div>
                     <div>
                         <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
-                              <select
+                            <select
                                 labelId="id"
                                 value={values.paymentMethod}
                                 onChange={handleChange('paymentMethod')}
                                 required
-                              >
+                            >
                                 <option value="">Select ...</option>
                                 <option>Swipe</option>
                                 <option>Ecocash</option>
@@ -175,7 +180,7 @@ export default function ReservationAdd() {
                                 <option>Telecash</option>
                                 <option>Cash</option>
                                 <option>Other</option>
-                              </select>
+                            </select>
                             <FormHelperText id="standard-payment-method-helper-text">Payment Method</FormHelperText>
                         </FormControl>
                         <br />
@@ -184,7 +189,7 @@ export default function ReservationAdd() {
                             input
                             type='button'
                             onClick={() => {
-                                if (values.firstname === null || values.lastname === null || values.paymentMethod === null || values.phoneNumber === null || values.email === null)alert("Please fill in all input fields.");
+                                if (values.firstname === null || values.lastname === null || values.paymentMethod === null || values.phoneNumber === null || values.email === null) alert("Please fill in all input fields.");
                                 else setModalShow(true);
                             }}
                             variant="contained"
@@ -202,12 +207,12 @@ export default function ReservationAdd() {
             </div>
         );
     }
-    else{
+    else {
         return (
-                <div>
-                    <h1>404</h1>
-                    <h2>Page not found!</h2>
-                </div>
+            <div>
+                <h1>404</h1>
+                <h2>Page not found!</h2>
+            </div>
         );
     }
 }

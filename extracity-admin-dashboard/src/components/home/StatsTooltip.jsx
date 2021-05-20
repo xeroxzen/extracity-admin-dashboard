@@ -12,13 +12,16 @@ import {
 import { EventTracker } from '@devexpress/dx-react-chart';
 
 const data = [
-    { year: 'January', population: 2.525 },
-    { year: 'February', population: 3.018 },
-    { year: 'March', population: 3.682 },
-    { year: 'April', population: 4.440 },
-    { year: 'May', population: 5.310 },
-    // { year: 'June', population: 6.127 },
-    // { year: '2010', population: 6.930 },
+    { route: 'Bulawayo', reservations: 30 },
+    { route: 'Harare', reservations: 34 },
+    { route: 'Kadoma', reservations: 9 },
+    { route: 'Victoria', reservations: 39 },
+    { route: 'Hwange', reservations: 13 },
+    { route: 'Kwekwe', reservations: 5 },
+    { route: 'Mutare', reservations: 22 },
+    { route: 'Chiredzi', reservations: 13 },
+    { route: 'Chegutu', reservations: 11 },
+    { route: 'Johannesburg', reservations: 40 },
 ];
 
 export default class StatsTooltip extends React.PureComponent {
@@ -34,7 +37,7 @@ export default class StatsTooltip extends React.PureComponent {
         const { data: chartData } = this.state;
 
         return (
-            <Paper style={{ backgroundColor: '#7a7a7a' }}>
+            <Paper style={{ backgroundColor: '#003c6c' }}>
                 <Chart
                     data={chartData}
                 >
@@ -42,10 +45,11 @@ export default class StatsTooltip extends React.PureComponent {
                     <ValueAxis />
 
                     <BarSeries
-                        valueField="population"
-                        argumentField="year"
+                        valueField="reservations"
+                        argumentField="route"
                     />
                     <Title
+                        style={{ backgroundColor: 'white' }}
                         text="Booking Reservations Activity"
                     />
                     <EventTracker />

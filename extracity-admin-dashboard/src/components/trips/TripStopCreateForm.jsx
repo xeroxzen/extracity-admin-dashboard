@@ -59,7 +59,7 @@ export default function TripStopCreateForm(props) {
     else {
       let id = uuid();
 
-      var stops = props.trip?.stops ?? new Map();
+      var stops = props.trip?.stops ?? {};
 
       //console.log(stops);
       //stops.delete(name);
@@ -113,19 +113,6 @@ export default function TripStopCreateForm(props) {
 
     }
 
-    //save
-    db
-      .collection("trips")
-      .doc(props.docID)
-      .update({ stops: stops })
-      .then(
-        (doc) =>
-          // fetching free slots
-          history.push("/trips/" + props.docID + "/stops")
-      )
-      .catch(
-        (e) => { alert("An error occurred!"); console.log(e); }
-      );
   }
   return (
     <form onSubmit={e => { handleSubmit(e) }} className={classes.root}>

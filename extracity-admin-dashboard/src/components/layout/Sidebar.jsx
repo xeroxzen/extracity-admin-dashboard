@@ -21,8 +21,9 @@ import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
 import DirectionsBusIcon from "@material-ui/icons/DirectionsBus";
 import FlightIcon from '@material-ui/icons/Flight';
 // import PaymentIcon from "@material-ui/icons/Payment";
-import AirlineSeatReclineNormalSharpIcon from '@material-ui/icons/AirlineSeatReclineNormalSharp';
-import PaymentIcon from "@material-ui/icons/Payment";
+// import AirlineSeatReclineNormalSharpIcon from '@material-ui/icons/AirlineSeatReclineNormalSharp';
+// import PaymentIcon from "@material-ui/icons/Payment";
+import LoyaltyIcon from '@material-ui/icons/Loyalty';
 import AssessmentIcon from '@material-ui/icons/Assessment';
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
@@ -235,7 +236,7 @@ export default function Sidebar() {
                 <List>
                     <ListItem>
                         <Button variant="contained" color="primary" onClick={() => setModalShow(true)}>
-                            <AddCircleIcon/>
+                            <AddCircleIcon />
                             Add a reservation
                         </Button>
                     </ListItem>
@@ -287,18 +288,18 @@ export default function Sidebar() {
                         <ListItemText primary="Fares Grid" />
                     </ListItemLink>
                     <Divider />
-                    {/* <ListItemLink href="/trips">
+                    <ListItemLink href="/trips">
                         <ListItemIcon>
-                            <DirectionsBusIcon color="primary" />
+                            <LoyaltyIcon color="primary" />
                         </ListItemIcon>
-                        <ListItemText primary="Trips" />
+                        <ListItemText primary="Trip Stops" />
                     </ListItemLink>
-                    <Divider /> */}
+                    <Divider />
                 </List>
                 <SearchTripForm
-                show={modalShow}
-                onHide={() => setModalShow(false)}
-              />
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                />
             </Drawer>
         </div>
     );

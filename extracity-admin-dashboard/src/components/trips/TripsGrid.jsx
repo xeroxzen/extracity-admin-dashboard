@@ -14,14 +14,29 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
+function displayStops(map) {
+    if (map === undefined || map === null) return [];
+
+    var newMap = new Map(Object.entries(map));
+    var arr = []; // initially new Array()
+
+    newMap.forEach((v) => {
+        arr.push(v.name);
+    });
+
+    return arr
+}
+
+// let link = `/trips/${tripRef.id}/stops`;
+
 const columns = [
     { field: 'trip', headerName: 'TRIP', width: 200, sortable: true, valueGetter: params => `${params.row.from} to ${params.row.to}` },
     { field: 'from', headerName: 'FROM', width: 130, sortable: true },
     { field: 'to', headerName: 'TO', width: 130, sortable: true },
     { field: "times", headerName: "TIMES", width: 160 },
-    { field: "stops", headerName: "STOPS", width: 160, valueGetter: params => `${params.row.stops}` },
+    { field: "stops", headerName: "STOPS", width: 200, valueGetter: params => `${displayStops(params.row.stops)}` },
     { field: "date", headerName: "DATE", width: 160, valueGetter: params => `${params.row.date.toDate()}`, },
-    // { field: "", headerName: "ACTION", width: 160, valueGetter: params => `Stops` },
+    { field: "", headerName: "ACTION", width: 160, valueGetter: params => `${params.row.Button}` },
 ]
 
 export default function TripsGrid() {

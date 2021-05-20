@@ -1,5 +1,6 @@
 {
   "name": "extracity-admin-dashboard",
+  "homepage": "https://www.extracityluxury.co.zw",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,7 +22,8 @@
     "firebase": "^8.4.3",
     "moment": "^2.29.1",
     "react": "^17.0.2",
-    "react-bootstrap": "^1.6.0",
+    "react-bootstrap": "^1.5.2",
+    "react-chartjs-2": "^3.0.3",
     "react-date-picker": "^8.1.1",
     "react-dom": "^17.0.2",
     "react-modal": "^3.13.1",
