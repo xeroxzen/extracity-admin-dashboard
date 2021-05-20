@@ -260,13 +260,13 @@ export default function DataTable() {
                     <Grid container justify="left" spacing={1}>
                         <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
                             <Input
-                                id="standard-adornment-search"
+                                id="outlined-basic"
                                 placeholder="Search..."
                                 value={values.search}
                                 required
                                 onChange={(e) => handleChange('search', e.target.value)}
                                 endAdornment={<InputAdornment position="end"></InputAdornment>}
-                                aria-describedby="standard-payment-reference-helper-text"
+                                aria-describedby="standard-search-bar-helper-text"
                                 inputProps={{
                                     'aria-label': 'Ticket ID',
                                 }}

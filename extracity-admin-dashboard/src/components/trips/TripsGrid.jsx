@@ -12,6 +12,9 @@ const useStyles = makeStyles(theme => ({
     button: {
         marginBottom: 10,
     },
+    grid: {
+        backgroundColor: '#008394',
+    }
 }))
 
 function displayStops(map) {
@@ -60,7 +63,7 @@ export default function TripsGrid() {
                 color="primary"
                 href="/fares/add"
                 className={classes.button}>Add Fare</Button>
-            <DataGrid rows={trips} columns={columns} />
+            <DataGrid className={classes.grid} rows={trips} columns={columns} />
         </div>
     )
 }
