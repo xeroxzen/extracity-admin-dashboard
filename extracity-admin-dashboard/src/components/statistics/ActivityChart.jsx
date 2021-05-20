@@ -143,13 +143,13 @@ export default function ActivityChart() {
     const data = {
         labels: labels,
         datasets: [
-            {
-                label: "Overall Activity",
-                data: activityData,
-                fill: false,
-                // backgroundColor: "rgba(75,192,192,0.2)",
-                borderColor: "#026ca0"
-            },
+            // {
+            //     label: "Overall Activity",
+            //     data: activityData,
+            //     fill: false,
+            //     // backgroundColor: "rgba(75,192,192,0.2)",
+            //     borderColor: "#026ca0"
+            // },
             {
                 label: "Bulawayo",
                 data: byoData,

@@ -22,6 +22,7 @@ import Statistics from "./pages/statistics/Statistics";
 import Payments from "./pages/payments/Payments";
 import Grid from './pages/fares/Grid'
 import TripGrid from './pages/trips/TripGrid'
+// import img1 from './assets/images/1.jpg'
 
 const theme = createMuiTheme({
   palette: {
@@ -81,9 +82,9 @@ function App() {
                 <PrivateRoute exact path="/statistics" component={Statistics} />
                 <PrivateRoute exact path="/payments" component={Payments} />
                 <PrivateRoute path='/downloads/:id/:ticketID' component={(e) => {
-                  window.open("https://extracitywebhook.herokuapp.com/downloads/" + encodeURIComponent(e.match.params.ticketID) + "/" +encodeURIComponent(e.match.params.id), "_blank"); 
-                  return window.location.href = "/reservations/"; 
-              }}/>
+                  window.open("https://extracitywebhook.herokuapp.com/downloads/" + encodeURIComponent(e.match.params.ticketID) + "/" + encodeURIComponent(e.match.params.id), "_blank");
+                  return window.location.href = "/reservations/";
+                }} />
               </div>
               <div>
                 <Route exact path='/login' component={login} />

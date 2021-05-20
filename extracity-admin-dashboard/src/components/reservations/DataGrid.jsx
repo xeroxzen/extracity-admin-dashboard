@@ -16,12 +16,17 @@ const useStyles = makeStyles((theme) => ({
         height: 400,
         width: '100%',
         marginTop: 80,
+
     },
     button: {
         marginBottom: '10px',
     },
     filterBox: {
         margin: theme.spacing(1),
+        backgroundColor: '#ffcd38',
+    },
+    grid: {
+        backgroundColor: '#008394',
     }
 }));
 
@@ -61,8 +66,8 @@ export default function DataTable() {
 
     const handleChange = (prop, value) => {
         setValues({ ...values, [prop]: value });
-        if (prop !== 'search' || (prop === 'search' && (value.length > 14 || value.length === 0))){
-            fetchReservations(null,prop,value);
+        if (prop !== 'search' || (prop === 'search' && (value.length > 14 || value.length === 0))) {
+            fetchReservations(null, prop, value);
         }
     }
 
@@ -137,7 +142,7 @@ export default function DataTable() {
             if (time !== '' && rts[route].times[time] !== undefined) queryRef = queryRef.where("TravelTime", "==", rts[route]?.times[time]);
         }
 
-        if (from !== '' && from !== null && from !== undefined && to !== '' && to !== null && to !== undefined && from.toDateString() === to.toDateString()){
+        if (from !== '' && from !== null && from !== undefined && to !== '' && to !== null && to !== undefined && from.toDateString() === to.toDateString()) {
             let min = moment(from, "YYYY-MM-DD").toDate();
             min.setDate(min.getDate() - 1);
             let max = moment(to, "YYYY-MM-DD").toDate();
@@ -145,9 +150,9 @@ export default function DataTable() {
 
             queryRef = queryRef.where("Date", ">", min).where("Date", "<", max);
         }
-        else{
-            if (from !== '' && from !== null && from !== undefined)queryRef = queryRef.where("Date", ">=", moment(from, "YYYY-MM-DD").toDate());
-            if (to !== '' && to !== null && to !== undefined){
+        else {
+            if (from !== '' && from !== null && from !== undefined) queryRef = queryRef.where("Date", ">=", moment(from, "YYYY-MM-DD").toDate());
+            if (to !== '' && to !== null && to !== undefined) {
                 let max = moment(to, "YYYY-MM-DD").toDate();
                 max.setDate(max.getDate() + 1);
 
@@ -155,8 +160,8 @@ export default function DataTable() {
             }
         }
 
-        if (search !== '' && search !== undefined){
-            queryRef = queryRef.where('TicketID', '==', search.toUpperCase().replace('X','x'))
+        if (search !== '' && search !== undefined) {
+            queryRef = queryRef.where('TicketID', '==', search.toUpperCase().replace('X', 'x'))
         }
 
         const query = await queryRef.get();
@@ -172,12 +177,7 @@ export default function DataTable() {
 
     return (
         <div className={classes.root}>
-            <h3 style={{ marginBottom: 20, }}>Ticket Reservation List</h3>
-            {/* <Button
-                variant="contained"
-                color="primary"
-                href="/reservations/add-reservation"
-                className={classes.button}>Add Reservation</Button> */}
+            <h3 style={{ marginBottom: 20, color: "#fff", }}>Ticket Reservation List</h3>
             <br />
             <Grid container className={classes.filterBox} spacing={2}>
                 <Grid item>
@@ -260,24 +260,24 @@ export default function DataTable() {
                     <Grid container justify="left" spacing={1}>
                         <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
                             <Input
-                              id="standard-adornment-search"
-                              placeholder="Search..."
-                              value={values.search}
-                              required
-                              onChange={(e) => handleChange('search', e.target.value)}
-                              endAdornment={<InputAdornment position="end"></InputAdornment>}
-                              aria-describedby="standard-payment-reference-helper-text"
-                              inputProps={{
-                                'aria-label': 'Ticket ID',
-                              }}
+                                id="standard-adornment-search"
+                                placeholder="Search..."
+                                value={values.search}
+                                required
+                                onChange={(e) => handleChange('search', e.target.value)}
+                                endAdornment={<InputAdornment position="end"></InputAdornment>}
+                                aria-describedby="standard-payment-reference-helper-text"
+                                inputProps={{
+                                    'aria-label': 'Ticket ID',
+                                }}
                             >
                             </Input>
                             <FormHelperText id="standard-search-helper-text">Search using Ticket ID</FormHelperText>
-                          </FormControl>
+                        </FormControl>
                     </Grid>
                 </Grid>
             </Grid>
-            <DataGrid rows={reservations} columns={headCells} />
+            <DataGrid className={classes.grid} rows={reservations} columns={headCells} />
         </div>
     );
 }

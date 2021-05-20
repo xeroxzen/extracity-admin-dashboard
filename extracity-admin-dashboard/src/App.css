@@ -66,10 +66,15 @@ body {
   background-image: linear-gradient(to right, #434343 0%, black 100%);
   background-image: linear-gradient(to top, #e6b980 0%, #eacda3 100%);
   background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+  background-image: url("./assets/images/9.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .App {
   text-align: left;
+  color: #03a9f4 !important;
 }
 
 .App-logo {
@@ -84,7 +89,9 @@ body {
 }
 
 input {
-  color: green !important;
+  /* color: green !important; */
+  color: #008394 !important;
+  font-size: small;
 }
 
 .App-header {
@@ -95,7 +102,7 @@ input {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #fff;
 }
 
 .App-link {

@@ -20,9 +20,6 @@ import ExploreIcon from '@material-ui/icons/Explore';
 import MonetizationOnIcon from "@material-ui/icons/MonetizationOn";
 import DirectionsBusIcon from "@material-ui/icons/DirectionsBus";
 import FlightIcon from '@material-ui/icons/Flight';
-// import PaymentIcon from "@material-ui/icons/Payment";
-// import AirlineSeatReclineNormalSharpIcon from '@material-ui/icons/AirlineSeatReclineNormalSharp';
-// import PaymentIcon from "@material-ui/icons/Payment";
 import LoyaltyIcon from '@material-ui/icons/Loyalty';
 import AssessmentIcon from '@material-ui/icons/Assessment';
 import { useHistory } from "react-router-dom";
@@ -35,13 +32,12 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import SearchTripForm from "../reservations/SearchTripForm";
 import AddCircleIcon from '@material-ui/icons/AddCircle';
-// import { ArrowRightTwoTone } from '@material-ui/icons';
 
 const drawerWidth = 240;
-
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
+
 
     },
     appBar: {
@@ -161,7 +157,7 @@ export default function Sidebar() {
     }
 
     return (
-        <div className={classes.root}>
+        <div className={classes.root} >
             {error && <Alert variant="danger">{error}</Alert>}
             <CssBaseline />
             <AppBar
