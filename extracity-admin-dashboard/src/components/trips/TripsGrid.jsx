@@ -57,7 +57,7 @@ export default function TripsGrid() {
 
     return (
         <div className={classes.root}>
-            <h3 style={{ marginBottom: 20, }}>Trips</h3>
+            <h3 style={{ marginBottom: 20, color: '#fff' }}>Trips</h3>
             <Button
                 variant="contained"
                 color="primary"

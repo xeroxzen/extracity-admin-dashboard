@@ -94,7 +94,7 @@ export default function FaresGrid() {
 
   return (
     <div className={classes.root}>
-      <h3 style={{ marginBottom: 20, }}>Fares</h3>
+      <h3 style={{ marginBottom: 20, color: '#fff' }}>Fares</h3>
       <Button
         variant="contained"
         color="primary"
