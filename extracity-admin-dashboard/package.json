@@ -32,7 +32,7 @@
     "react-scripts": "4.0.3",
     "react-time-picker": "^4.2.1",
     "tslib": "^2.2.0",
-    "uuidv4": "^6.2.7",
+    "uuidv4": "^6.2.8",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
