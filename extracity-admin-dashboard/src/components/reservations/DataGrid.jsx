@@ -43,7 +43,7 @@ const headCells = [
     { field: "PhoneNumber", headerName: "PHONE #", width: 130 },
     { field: "Trip", headerName: "TRIP", width: 170 },
     {
-        field: "Date", headerName: "DATE", width: 160, valueGetter: params => `${params.row.Date.toDate()}`,
+        field: "Date", headerName: "TRAVEL DATE", width: 160, valueGetter: params => `${params.row.Date.toDate()}`,
     },
     { field: "TravelTime", headerName: "TIME", width: 110 },
     { field: "Amount", headerName: "AMOUNT", width: 110, valueGetter: params => `${params.row.Currency} ${params.row.Amount}` },
