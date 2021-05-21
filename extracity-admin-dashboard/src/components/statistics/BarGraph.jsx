@@ -10,6 +10,7 @@ import ActivityChart from "./ActivityChart";
 import { Bar } from 'react-chartjs-2';
 import StatsChart from "./StatsChart";
 import StackedBar from "./StackedBar";
+import PaymentMethodChart from './PaymentMethodChart'
 
 const styles = (theme) => ({
     select: {
@@ -257,6 +258,21 @@ class BarGraph extends React.Component {
                         >
                             <CardContent>
                                 <StackedBar />
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item md={6}>
+                        <hr />
+                        <Card
+                            style={{
+                                // backgroundColor: "#34495e",
+                                // background: "linear-gradient(transparent,rgba(0,151,167,1))",
+                                backgroundColor: '#003c6c',
+                                marginLeft: 5,
+                            }}
+                        >
+                            <CardContent>
+                                <PaymentMethodChart />
                             </CardContent>
                         </Card>
                     </Grid>
