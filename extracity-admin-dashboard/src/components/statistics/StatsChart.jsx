@@ -3,16 +3,6 @@ import * as React from 'react';
 import firebase from 'firebase';
 import { Line } from "react-chartjs-2";
 import Grid from "@material-ui/core/Grid";
-// import {
-//     Chart,
-//     BarSeries,
-//     Title,
-//     ArgumentAxis,
-//     ValueAxis,
-//     Tooltip,
-// } from '@devexpress/dx-react-chart-material-ui';
-
-// import { EventTracker } from '@devexpress/dx-react-chart';
 import moment from 'moment';
 
 
@@ -55,8 +45,8 @@ export default function StatsChart() {
             {
                 label: "No. of reservations",
                 fill: true,
-                backgroundColor: "#b71c1c",
-                borderColor: "#b71c1c",
+                backgroundColor: "#00a152",
+                borderColor: "#00a152",
                 data: activityData,
                 borderWidth: 1,
                 pointRadius: 0,
@@ -64,20 +54,10 @@ export default function StatsChart() {
 
         ],
     };
-    // constructor(props) {
-    //     super(props);
-
-    //     this.state = {
-    //         data,
-    //     };
-    // }
-
-    // render() {
-    //     const { data: chartData } = this.state;
 
     return (
         <Grid container style={{ padding: 20 }}>
-            <h5 style={{ color: '#fff' }}>Payment Methods Chart</h5>
+            <h5 style={{ color: '#fff' }}>Overall Activity Chart</h5>
             <Line
                 height={200}
                 data={data}

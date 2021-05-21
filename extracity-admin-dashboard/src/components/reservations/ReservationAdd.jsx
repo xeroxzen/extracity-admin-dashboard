@@ -6,12 +6,9 @@ import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
-import { Button, Card, Grid } from '@material-ui/core';
+import { Button, Card } from '@material-ui/core';
 import firebase from "../../firebase.config";
 import ConfirmReservation from './ConfirmReservation';
-// const { uuid } = require("uuidv4");
-// eslint-disable-next-line
-// import firebase from "../../firebase.config";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -100,7 +97,7 @@ export default function ReservationAdd() {
     if (reservation !== null) {
         return (
             <Card className={classes.card}>
-                <h3 style={{padding: 20}}>New Reservation</h3>
+                <h3 style={{ padding: 20 }}>New Reservation</h3>
                 <form className={classes.root} >
                     <div>
 
