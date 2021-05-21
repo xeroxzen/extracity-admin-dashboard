@@ -6,7 +6,7 @@ import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
-import { Button } from '@material-ui/core';
+import { Button, Card, Grid } from '@material-ui/core';
 import firebase from "../../firebase.config";
 import ConfirmReservation from './ConfirmReservation';
 // const { uuid } = require("uuidv4");
@@ -28,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
     textField: {
         width: '25ch', //25ch
         // fontSize: '11',
+    },
+    card: {
+        marginTop: 80,
     },
 }));
 
@@ -96,15 +99,15 @@ export default function ReservationAdd() {
 
     if (reservation !== null) {
         return (
-            <div>
-                <form className={classes.root}>
+            <Card className={classes.card}>
+                <h3 style={{padding: 20}}>New Reservation</h3>
+                <form className={classes.root} >
                     <div>
-                        <h3>New Reservation</h3>
 
                         <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
                             <Input
                                 id="standard-adornment-first-name"
-                                placeholder="Andile"
+                                // placeholder="Andile"
                                 required
                                 value={values.firstname}
                                 onChange={handleChange('firstname')}
@@ -114,29 +117,29 @@ export default function ReservationAdd() {
                                     'aria-label': 'First name',
                                 }}
                             />
-                            <FormHelperText id="standard-first-name-helper-text">First Name</FormHelperText>
+                            <FormHelperText id="standard-first-name-helper-text"><b>First Name</b></FormHelperText>
                         </FormControl>
 
                         <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
                             <Input
                                 id="standard-adornment-last-name"
-                                placeholder="Mbele"
+
                                 value={values.lastname}
                                 onChange={handleChange('lastname')}
                                 required
-                                // endAdornment={<InputAdornment position="end"></InputAdornment>}
+
                                 aria-describedby="standard-last-name-helper-text"
                                 inputProps={{
                                     'aria-label': 'Last name',
                                 }}
                             />
-                            <FormHelperText id="standard-last-name-helper-text">Last Name</FormHelperText>
+                            <FormHelperText id="standard-last-name-helper-text"><b>Last Name</b></FormHelperText>
                         </FormControl>
 
                         <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
                             <Input
                                 id="standard-adornment-phone-number"
-                                placeholder="0776869521"
+
                                 value={values.phoneNumber}
                                 required
                                 onChange={handleChange('phoneNumber')}
@@ -146,13 +149,13 @@ export default function ReservationAdd() {
                                     'aria-label': 'Phone Number',
                                 }}
                             />
-                            <FormHelperText id="standard-weight-helper-text">Phone Number</FormHelperText>
+                            <FormHelperText id="standard-phone-number-helper-text"><b>Phone Number</b></FormHelperText>
                         </FormControl>
 
                         <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
                             <Input
                                 id="standard-adornment-email"
-                                placeholder="andile.m@outlook.com"
+                                // placeholder="andile.m@outlook.com"
                                 value={values.email}
                                 required
                                 onChange={handleChange('email')}
@@ -162,10 +165,11 @@ export default function ReservationAdd() {
                                     'aria-label': 'Email',
                                 }}
                             />
-                            <FormHelperText id="standard-weight-helper-text">Email Address</FormHelperText>
+                            <FormHelperText id="standard-email-helper-text"><b>Email Address</b></FormHelperText>
                         </FormControl>
                     </div>
                     <div>
+                        <br />
                         <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
                             <select
                                 labelId="id"
@@ -181,8 +185,9 @@ export default function ReservationAdd() {
                                 <option>Cash</option>
                                 <option>Other</option>
                             </select>
-                            <FormHelperText id="standard-payment-method-helper-text">Payment Method</FormHelperText>
+                            <FormHelperText id="standard-payment-method-helper-text"><b>Payment Method</b></FormHelperText>
                         </FormControl>
+                        <br />
                         <br />
                         <br />
                         <Button
@@ -195,6 +200,8 @@ export default function ReservationAdd() {
                             variant="contained"
                             color="primary"
                             className="submitButton">Submit</Button>
+                        <br />
+                        <br />
                         {/* <input className='submitButton' type='submit' value='Submit' /> */}
                     </div>
                 </form>
@@ -204,7 +211,7 @@ export default function ReservationAdd() {
                     handleSubmit={handleSubmit}
                     show={modalShow}
                     onHide={() => setModalShow(false)} />
-            </div>
+            </Card>
         );
     }
     else {
