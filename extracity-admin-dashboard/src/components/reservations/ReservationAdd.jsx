@@ -177,7 +177,7 @@ export default function ReservationAdd() {
                                 <option value="">Select ...</option>
                                 <option>Swipe</option>
                                 <option>Ecocash</option>
-                                <option>One money</option>
+                                <option>One Money</option>
                                 <option>Telecash</option>
                                 <option>Cash</option>
                                 <option>Other</option>

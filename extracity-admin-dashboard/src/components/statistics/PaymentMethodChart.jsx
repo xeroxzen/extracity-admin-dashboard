@@ -22,41 +22,46 @@ export default function PaymentMethodChart() {
             let dates = [];
             dates.push(moment().format('MMM'));
             setLabels(dates);
-            // let min = new Date().getMonth();
-            // min.setDate(min.getDate() - x - 1);
-            // let max = new Date().getMonth();
-            // max.setMonth(max.getMonth() - x);
+
             // eslint-disable-next-line
             let ecocashRef = await db.collection('reservations')
-                .where("PaymentMethod", "==", ['EcoCash', 'Ecocash', 'ecocash'])
+                .where("PaymentMethod", "==", 'Ecocash')
                 .get()
                 .then((snapshot) => {
                     setEcoCashData(state => [...state, snapshot.size]);
-                });
+                }, []);
+
+            // eslint-disable-next-line
             let onemoneyRef = await db.collection('reservations')
-                .where("PaymentMethod", "==", ['OneMoney', 'One Money', 'one money'])
+                .where("PaymentMethod", "==", 'One Money')
                 .get()
                 .then((snapshot) => {
                     setOneMoneyData(state => [...state, snapshot.size]);
-                });
+                }, []);
+
+            // eslint-disable-next-line
             let telecashRef = db.collection('reservations')
                 .where("PaymentMethod", "==", 'Telecash')
                 .get()
                 .then((snapshot) => {
                     setTelecashData(state => [...state, snapshot.size]);
-                });
+                }, []);
+
+            // eslint-disable-next-line
             let swipeRef = db.collection('reservations')
-                .where("PaymentMethod", "==", ['Swipe', 'swipe'])
+                .where("PaymentMethod", "==", 'Swipe')
                 .get()
                 .then((snapshot) => {
                     setSwipeData(state => [...state, snapshot.size]);
-                });
+                }, []);
+
+            // eslint-disable-next-line
             let cashRef = db.collection('reservations')
-                .where("PaymentMethod", "==", ['Cash', 'cash'])
+                .where("PaymentMethod", "==", 'Cash')
                 .get()
                 .then((snapshot) => {
                     setCashData(state => [...state, snapshot.size]);
-                });
+                }, []);
 
         }
         fetchData();
@@ -66,33 +71,33 @@ export default function PaymentMethodChart() {
         labels: labels,
         datasets: [
             {
-                label: 'EcoCash',
+                label: 'Ecocash',
                 data: ecocashData,
-                backgroundColor: 'rgb(255, 99, 132)',
+                backgroundColor: '#1e88e5',
                 borderWidth: 1,
             },
             {
                 label: 'Cash',
                 data: cashData,
-                backgroundColor: 'rgb(54, 162, 235)',
+                backgroundColor: '#f4511e',
                 borderWidth: 1,
             },
             {
                 label: 'One Money',
                 data: oneMoneyData,
-                backgroundColor: 'rgb(75, 192, 192)',
+                backgroundColor: '#e53935',
                 borderWidth: 1,
             },
             {
                 label: 'Telecash',
                 data: telecashData,
-                backgroundColor: '#fff',
+                backgroundColor: '#00897b',
                 borderWidth: 1,
             },
             {
                 label: 'Swipe',
                 data: swipeData,
-                backgroundColor: '#afafa7',
+                backgroundColor: '#33eb91',
                 borderWidth: 1,
             },
         ],
