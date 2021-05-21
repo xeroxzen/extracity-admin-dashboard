@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from "@material-ui/core/styles";
-import StatsChart from './StatsChart';
-import ActivityChart from './ActivityChart';
+// import StatsChart from './StatsChart';
+// import ActivityChart from './ActivityChart';
 import BarGraph from './BarGraph';
 
 const useStyles = makeStyles(theme => ({
@@ -17,9 +17,9 @@ export default function StatsData() {
             <h2 style={{ color: '#fff' }}>Statistics</h2>
             <BarGraph />
             <hr />
-            <StatsChart />
-            <hr />
-            <ActivityChart />
+            {/* <StatsChart /> */}
+            {/* <hr /> */}
+            {/* <ActivityChart /> */}
         </div>
     )
 }

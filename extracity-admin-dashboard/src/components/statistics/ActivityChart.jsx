@@ -204,46 +204,49 @@ export default function ActivityChart() {
     };
 
     return (
-        <Line
-            height={200}
-            data={data}
-            style={{
-                backgroundColor: '#003c6c',
-                fontColor: '#fff'
-            }}
-            options={{
-                responsive: true,
-                title: {
-                    display: true,
-                    text: "Activity for the past 7 days",
-                    fontSize: 17,
-                    color: "#fff",
-                    padding: 10,
-                },
-                legend: {
-                    display: false,
-                    position: "right",
-                    color: '#fff'
-                },
-                scales: {
-                    yAxes: [
-                        {
-                            ticks: {
-                                color: "white",
-                                beginAtZero: true,
-                                stepSize: 1
+        <>
+            <h5 style={{ color: '#fff' }}>Departure Points Chart</h5>
+            <Line
+                height={200}
+                data={data}
+                style={{
+                    backgroundColor: '#003c6c',
+                    fontColor: '#fff'
+                }}
+                options={{
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: "Activity for the past 7 days",
+                        fontSize: 17,
+                        color: "#fff",
+                        padding: 10,
+                    },
+                    legend: {
+                        display: false,
+                        position: "right",
+                        color: '#fff'
+                    },
+                    scales: {
+                        yAxes: [
+                            {
+                                ticks: {
+                                    color: "white",
+                                    beginAtZero: true,
+                                    stepSize: 1
+                                },
                             },
-                        },
-                    ],
-                    xAxes: [
-                        {
-                            ticks: {
-                                color: "white",
+                        ],
+                        xAxes: [
+                            {
+                                ticks: {
+                                    color: "white",
+                                },
                             },
-                        },
-                    ],
-                },
-            }}
-        />
+                        ],
+                    },
+                }}
+            />
+        </>
     )
 }

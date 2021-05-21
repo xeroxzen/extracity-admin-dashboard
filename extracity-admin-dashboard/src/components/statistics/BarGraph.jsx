@@ -8,6 +8,8 @@ import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
 import ActivityChart from "./ActivityChart";
 import { Bar } from 'react-chartjs-2';
+import StatsChart from "./StatsChart";
+import StackedBar from "./StackedBar";
 
 const styles = (theme) => ({
     select: {
@@ -24,6 +26,7 @@ const styles = (theme) => ({
     },
     grid: {
         paddingLeft: 20,
+        color: "#fff"
     },
 });
 
@@ -93,7 +96,6 @@ class BarGraph extends React.Component {
             datasets: [
                 {
                     label: "Cumulative Reservations",
-                    // backgroundColor: "#04e7ff",
                     backgroundColor: this.colors,
                     // borderColor: "#04e7ff",
                     borderWidth: 1,
@@ -161,14 +163,17 @@ class BarGraph extends React.Component {
                 </Grid>
                 <Grid container>
                     <Grid item md={6}>
+
                         <Card
                             style={{
                                 backgroundColor: '#003c6c',
-                                // background: "linear-gradient(transparent,rgba(0,151,167,1))",
+
+                                color: '#fff',
                                 marginRight: 5,
                             }}
                         >
                             <CardContent>
+                                <h5 style={{ color: '#fff' }}>Activity Chart</h5>
                                 <Bar
                                     height={200}
                                     data={data}
@@ -178,13 +183,13 @@ class BarGraph extends React.Component {
                                             display: true,
                                             text: "Reservations Summary",
                                             fontSize: 17,
-                                            fontColor: "white",
+                                            color: "white",
                                             padding: 10,
                                             align: "start",
                                         },
                                         legend: {
                                             labels: {
-                                                fontColor: "white",
+                                                color: "#fff",
                                             },
                                             display: false,
                                             position: "right",
@@ -193,7 +198,7 @@ class BarGraph extends React.Component {
                                             yAxes: [
                                                 {
                                                     ticks: {
-                                                        fontColor: "white",
+                                                        color: "#fff",
                                                         beginAtZero: true,
                                                     },
                                                 },
@@ -201,7 +206,7 @@ class BarGraph extends React.Component {
                                             xAxes: [
                                                 {
                                                     ticks: {
-                                                        fontColor: "white",
+                                                        color: "#fff",
                                                         beginAtZero: true,
                                                     },
                                                 },
@@ -225,17 +230,34 @@ class BarGraph extends React.Component {
                             </CardContent>
                         </Card>
                     </Grid>
-                    <Grid item md={12}>
+                    <Grid item md={6}>
+                        <hr />
                         <Card
                             style={{
-                                backgroundColor: "#34495e",
-                                background: "linear-gradient(transparent,rgba(0,151,167,1))",
+                                // backgroundColor: "#34495e",
+                                // background: "linear-gradient(transparent,rgba(0,151,167,1))",
+                                backgroundColor: '#003c6c',
                                 marginLeft: 5,
                             }}
                         >
-                            {/* <CardContent>
-                                <PaymentStats />
-                            </CardContent> */}
+                            <CardContent>
+                                <StatsChart />
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item md={6}>
+                        <hr />
+                        <Card
+                            style={{
+                                // backgroundColor: "#34495e",
+                                // background: "linear-gradient(transparent,rgba(0,151,167,1))",
+                                backgroundColor: '#003c6c',
+                                marginLeft: 5,
+                            }}
+                        >
+                            <CardContent>
+                                <StackedBar />
+                            </CardContent>
                         </Card>
                     </Grid>
                 </Grid>

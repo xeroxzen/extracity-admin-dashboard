@@ -2,6 +2,7 @@ import * as React from 'react';
 // import Paper from '@material-ui/core/Paper';
 import firebase from 'firebase';
 import { Line } from "react-chartjs-2";
+import Grid from "@material-ui/core/Grid";
 // import {
 //     Chart,
 //     BarSeries,
@@ -75,45 +76,48 @@ export default function StatsChart() {
     //     const { data: chartData } = this.state;
 
     return (
-        <Line
-            height={200}
-            data={data}
-            style={{
-                backgroundColor: '#003c6c'
-            }}
-            options={{
-                responsive: true,
-                title: {
-                    display: true,
-                    text: "Activity for the past 7 days",
-                    fontSize: 17,
-                    fontColor: "#5f0937",
-                    padding: 10,
-                },
-                legend: {
-                    display: true,
-                    position: "right",
-                },
-                scales: {
-                    yAxes: [
-                        {
-                            ticks: {
-                                fontColor: "white",
-                                beginAtZero: true,
-                                stepSize: 1
+        <Grid container style={{ padding: 20 }}>
+            <h5 style={{ color: '#fff' }}>Payment Methods Chart</h5>
+            <Line
+                height={200}
+                data={data}
+                style={{
+                    backgroundColor: '#003c6c'
+                }}
+                options={{
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: "Activity for the past 7 days",
+                        fontSize: 17,
+                        fontColor: "#5f0937",
+                        padding: 10,
+                    },
+                    legend: {
+                        display: true,
+                        position: "right",
+                    },
+                    scales: {
+                        yAxes: [
+                            {
+                                ticks: {
+                                    fontColor: "white",
+                                    beginAtZero: true,
+                                    stepSize: 1
+                                },
                             },
-                        },
-                    ],
-                    xAxes: [
-                        {
-                            ticks: {
-                                fontColor: "white",
+                        ],
+                        xAxes: [
+                            {
+                                ticks: {
+                                    fontColor: "white",
+                                },
                             },
-                        },
-                    ],
-                },
-            }}
-        />
+                        ],
+                    },
+                }}
+            />
+        </Grid>
     )
 }
 // }
