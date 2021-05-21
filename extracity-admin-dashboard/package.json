@@ -32,6 +32,7 @@
     "react-multi-select-component": "^4.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-select": "^4.3.1",
     "react-time-picker": "^4.2.1",
     "tslib": "^2.2.0",
     "uuidv4": "^6.2.8",
