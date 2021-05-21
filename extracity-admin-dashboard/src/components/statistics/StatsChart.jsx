@@ -53,7 +53,7 @@ export default function StatsChart() {
         datasets: [
             {
                 label: "No. of reservations",
-                fill: false,
+                fill: true,
                 backgroundColor: "#b71c1c",
                 borderColor: "#b71c1c",
                 data: activityData,
