@@ -4,6 +4,7 @@ import firebase from 'firebase';
 import { Line } from "react-chartjs-2";
 
 export default function ActivityChart() {
+    // eslint-disable-next-line
     const [activityData, setActivityData] = React.useState([]);
     const [byoData, setByoData] = React.useState([]);
     const [harareData, setHarareData] = React.useState([]);

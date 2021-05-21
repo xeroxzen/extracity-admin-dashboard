@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: '#008394',
     },
     filterBox: {
-         margin: theme.spacing(1),
+        margin: theme.spacing(1),
     },
     customButton: {
         margin: 10,
@@ -55,7 +55,7 @@ const columns = [
     { field: "times", headerName: "TIMES", width: 160 },
     { field: "stops", headerName: "STOPS", width: 200, valueGetter: params => `${displayStops(params.row.stops)}` },
     { field: "date", headerName: "DATE", width: 160, valueGetter: params => `${params.row.date.toDate()}`, },
-    { field: "", headerName: "ACTION", width: 160, disableClickEventBubbling: true, renderCell: params => params.row.Button},
+    { field: "", headerName: "ACTION", width: 160, disableClickEventBubbling: true, renderCell: params => params.row.Button },
 ]
 
 export default function TripsGrid() {
@@ -79,7 +79,7 @@ export default function TripsGrid() {
 
     const handleChange = (prop, value) => {
         setValues({ ...values, [prop]: value });
-        fetchTrips(prop,value);
+        fetchTrips(prop, value);
     }
 
     const handleDelete = (trip, id) => {
@@ -106,22 +106,23 @@ export default function TripsGrid() {
         let stops = values.stops;
         let arr = [];
 
-        switch(prop){
+        switch (prop) {
             case 'to':
                 to = value;
-            break;
+                break;
             case 'from':
                 from = value;
-            break;
+                break;
             case 'stops':
                 stops = value;
-            break;
+                break;
+            default:
         }
 
-        if (from !== '' && from !== undefined)dataRef = dataRef.where('from','==', cities[from]);
-        if (to !== '' && to !== undefined)dataRef = dataRef.where('to','==', cities[to]);
+        if (from !== '' && from !== undefined) dataRef = dataRef.where('from', '==', cities[from]);
+        if (to !== '' && to !== undefined) dataRef = dataRef.where('to', '==', cities[to]);
 
-        if (stops !== undefined && stops.length > 0){
+        if (stops !== undefined && stops.length > 0) {
             stops.forEach((e) => {
                 dataRef = dataRef.where('stops.' + e.value + '.name', '==', e.value);
             });
@@ -131,30 +132,31 @@ export default function TripsGrid() {
         setTrips(data.docs.map(doc => {
             let trip = doc.data();
 
-            if (cities.length === 0 && arr.indexOf(trip.from) === -1)arr.push(trip.from);
-            if (cities.length === 0 && arr.indexOf(trip.to) === -1)arr.push(trip.to);
-            if (cities.length === 0 && trip.stops !== undefined){
+            if (cities.length === 0 && arr.indexOf(trip.from) === -1) arr.push(trip.from);
+            if (cities.length === 0 && arr.indexOf(trip.to) === -1) arr.push(trip.to);
+            if (cities.length === 0 && trip.stops !== undefined) {
                 (Array.from(new Map(Object.entries(trip.stops)).keys())).forEach((e) => {
-                    if (arr.indexOf(e) === -1)arr.push(e);
+                    if (arr.indexOf(e) === -1) arr.push(e);
                 });
             }
 
             trip.Button = (<div>
                 <Button
-                variant="contained"
-                color="primary"
-                className={classes.customButton} color="red" onClick={() => handleEdit(trip,doc.id)}><EditIcon fontSize="inherit"/></Button>
+                    variant="contained"
+                    color="primary"
+                    // eslint-disable-next-line
+                    className={classes.customButton} color="red" onClick={() => handleEdit(trip, doc.id)}><EditIcon fontSize="inherit" /></Button>
                 <Button
-                variant="contained"
-                color="primary"
-                className={classes.customButton} onClick={() => handleDelete(trip,doc.id)}><DeleteForeverIcon fontSize="inherit"/></Button>
+                    variant="contained"
+                    color="primary"
+                    className={classes.customButton} onClick={() => handleDelete(trip, doc.id)}><DeleteForeverIcon fontSize="inherit" /></Button>
             </div>);
 
             return { ...trip, id: doc.id };
         }));
 
-        if(cities.length === 0)setCities(arr);
-        if(cities.length === 0)setOptions(arr.map((e) => ({value: e, label: e})));
+        if (cities.length === 0) setCities(arr);
+        if (cities.length === 0) setOptions(arr.map((e) => ({ value: e, label: e })));
     };
 
     React.useState(() => {
@@ -173,60 +175,60 @@ export default function TripsGrid() {
             <br />
             <Grid container className={classes.filterBox} spacing={2}>
                 <Grid item>
-                  <Grid container justify="left" spacing={1}>
-                    <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
-                      <select
-                        labelId="id"
-                        value={values.from}
-                        onChange={(e) => handleChange('from', e.target.value)}
-                        required
-                      >
-                        <option value="">All</option>
-                        {cities?.map((item, counter) => {
-                          return <option value={counter}>{item}</option>;
-                        })}
-                      </select>
-                      <FormHelperText id="standard-date-helper-text">From</FormHelperText>
-                    </FormControl>
-                   </Grid>
+                    <Grid container justify="left" spacing={1}>
+                        <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
+                            <select
+                                labelId="id"
+                                value={values.from}
+                                onChange={(e) => handleChange('from', e.target.value)}
+                                required
+                            >
+                                <option value="">All</option>
+                                {cities?.map((item, counter) => {
+                                    return <option value={counter}>{item}</option>;
+                                })}
+                            </select>
+                            <FormHelperText id="standard-date-helper-text">From</FormHelperText>
+                        </FormControl>
+                    </Grid>
                 </Grid>
                 <Grid item>
-                  <Grid container justify="left" spacing={1}>
-                    <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
-                      <select
-                        labelId="id"
-                        value={values.to}
-                        onChange={(e) => handleChange('to', e.target.value)}
-                        required
-                      >
-                        <option value="">All</option>
-                        {cities?.map((item, counter) => {
-                          return <option value={counter}>{item}</option>;
-                        })}
-                      </select>
-                      <FormHelperText id="standard-date-helper-text">To</FormHelperText>
-                    </FormControl>
-                   </Grid>
+                    <Grid container justify="left" spacing={1}>
+                        <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
+                            <select
+                                labelId="id"
+                                value={values.to}
+                                onChange={(e) => handleChange('to', e.target.value)}
+                                required
+                            >
+                                <option value="">All</option>
+                                {cities?.map((item, counter) => {
+                                    return <option value={counter}>{item}</option>;
+                                })}
+                            </select>
+                            <FormHelperText id="standard-date-helper-text">To</FormHelperText>
+                        </FormControl>
+                    </Grid>
                 </Grid>
                 <Grid item>
-                  <Grid container justify="left" spacing={1}>
-                    <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
-                      <Select
-                          closeMenuOnSelect={false}
-                          isMulti
-                          options={options}
-                          onChange={handleOptions}
-                          style={{width: "400px"}}
-                          className="select-custom-class" 
-                        />
-                      <FormHelperText id="standard-date-helper-text">Stops</FormHelperText>
-                    </FormControl>
-                   </Grid>
+                    <Grid container justify="left" spacing={1}>
+                        <FormControl className={clsx(classes.margin, classes.withoutLabel, classes.textField)}>
+                            <Select
+                                closeMenuOnSelect={false}
+                                isMulti
+                                options={options}
+                                onChange={handleOptions}
+                                style={{ width: "400px" }}
+                                className="select-custom-class"
+                            />
+                            <FormHelperText id="standard-date-helper-text">Stops</FormHelperText>
+                        </FormControl>
+                    </Grid>
                 </Grid>
             </Grid>
             <DataGrid className={classes.grid} rows={trips} columns={columns} />
-            <DeleteModal trip={deleteTrip} id={deleteID} show={deleteShow} onHide={() => setDeleteShow(false)}/>
-            <EditModal trip={editTrip} id={editID} show={editShow} onHide={() => setEditShow(false)}/>
+            <DeleteModal trip={deleteTrip} id={deleteID} show={deleteShow} onHide={() => setDeleteShow(false)} />
+            <EditModal trip={editTrip} id={editID} show={editShow} onHide={() => setEditShow(false)} />
         </div>
     )
 }
