@@ -23,10 +23,16 @@ const useStyles = makeStyles((theme) => ({
     },
     filterBox: {
         margin: theme.spacing(1),
-        backgroundColor: '#ffcd38',
+        // backgroundColor: '#ffcd38',
+        backgroundColor: '#003c6c'
     },
     grid: {
         backgroundColor: '#008394',
+        color: '#fafafa',
+        // color: 'black',
+        fontSize: 15,
+        // fontFamily: 'sans-serif'
+
     }
 }));
 
@@ -40,13 +46,13 @@ const headCells = [
         valueGetter: (params) =>
             `${params.row.firstName}  ${params.row.lastName}`,
     },
-    { field: "PhoneNumber", headerName: "PHONE #", width: 130 },
+    { field: "PhoneNumber", headerName: "PHONE #", width: 130, },
     { field: "Trip", headerName: "TRIP", width: 170 },
     {
         field: "Date", headerName: "TRAVEL DATE", width: 160, valueGetter: params => `${params.row.Date.toDate()}`,
     },
     { field: "TravelTime", headerName: "TIME", width: 110 },
-    { field: "Amount", headerName: "AMOUNT", width: 110, valueGetter: params => `${params.row.Currency} ${params.row.Amount}` },
+    { field: "Amount", headerName: "AMOUNT", width: 120, valueGetter: params => `${params.row.Currency} ${params.row.Amount}` },
     { field: "TicketID", headerName: "TICKET ID", width: 180 },
 ]
 
@@ -194,7 +200,7 @@ export default function DataTable() {
                                     return <option value={counter}>{item.name}</option>;
                                 })}
                             </select>
-                            <FormHelperText id="standard-date-helper-text">Route</FormHelperText>
+                            <FormHelperText id="standard-date-helper-text" style={{ color: '#fff', fontSize: 15, }}>Route</FormHelperText>
                         </FormControl>
                     </Grid>
                 </Grid>
@@ -212,7 +218,7 @@ export default function DataTable() {
                                     return <option value={key}>{item.replace('-', " to ")}</option>;
                                 })}
                             </select>
-                            <FormHelperText id="standard-date-helper-text">Trip</FormHelperText>
+                            <FormHelperText id="standard-trip-helper-text" style={{ color: '#fff', fontSize: 15, }}>Trip</FormHelperText>
                         </FormControl>
                     </Grid>
                 </Grid>
@@ -230,7 +236,7 @@ export default function DataTable() {
                                     return <option value={counter}>{item}</option>;
                                 })}
                             </select>
-                            <FormHelperText id="standard-date-helper-text">Time</FormHelperText>
+                            <FormHelperText id="standard-date-helper-text" style={{ color: '#fff', fontSize: 15, }}>Time</FormHelperText>
                         </FormControl>
                     </Grid>
                 </Grid>
@@ -241,7 +247,7 @@ export default function DataTable() {
                                 onChange={handleFrom}
                                 value={values.from}
                             />
-                            <FormHelperText id="standard-date-helper-text">From</FormHelperText>
+                            <FormHelperText id="standard-date-helper-text" style={{ color: '#fff', fontSize: 15, }}>From</FormHelperText>
                         </FormControl>
                     </Grid>
                 </Grid>
@@ -252,7 +258,7 @@ export default function DataTable() {
                                 onChange={handleTo}
                                 value={values.to}
                             />
-                            <FormHelperText id="standard-date-helper-text">To</FormHelperText>
+                            <FormHelperText id="standard-date-helper-text" style={{ color: '#fff', fontSize: 15, }}>To</FormHelperText>
                         </FormControl>
                     </Grid>
                 </Grid>
@@ -272,7 +278,7 @@ export default function DataTable() {
                                 }}
                             >
                             </Input>
-                            <FormHelperText id="standard-search-helper-text">Search using Ticket ID</FormHelperText>
+                            <FormHelperText id="standard-search-helper-text" style={{ color: '#fff', fontSize: 15, }}>Search using Ticket ID</FormHelperText>
                         </FormControl>
                     </Grid>
                 </Grid>

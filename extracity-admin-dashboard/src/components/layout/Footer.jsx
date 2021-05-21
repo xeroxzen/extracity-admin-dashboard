@@ -19,7 +19,7 @@ export default function Footer() {
 
     return (
         <AppBar className={classes.root} position="relative" color="primary">
-            <Container maxWidth="sm">
+            <Container maxWidth="md-12">
                 <Toolbar>
                     <Typography variant="body1" color="inherit">
                         First Source Technology {new Date().getFullYear()}
