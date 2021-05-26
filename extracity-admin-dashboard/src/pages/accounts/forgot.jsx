@@ -1,8 +1,8 @@
 import React from "react";
-import Login from "../../components/accounts/Login";
+import Forgot from "../../components/accounts/Forgot";
 import { Container } from "react-bootstrap";
 
-export default function login() {
+export default function forgot() {
     return (
         <Container
             className="d-flex align-items-center justify-content-center"
@@ -12,9 +12,9 @@ export default function login() {
                 className="w-100"
                 style={{ maxWidth: "350px", alignItems: "center" }}
             >
-                <Login />
+                <Forgot />
             </div>
         </Container>
     );
 }
-export { login };
+export { forgot };

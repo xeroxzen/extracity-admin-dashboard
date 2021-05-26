@@ -22,6 +22,7 @@ import Statistics from "./pages/statistics/Statistics";
 import Payments from "./pages/payments/Payments";
 import Grid from './pages/fares/Grid'
 import TripGrid from './pages/trips/TripGrid'
+import Forgot from "./components/accounts/Forgot";
 // import img1 from './assets/images/1.jpg'
 
 const theme = createMuiTheme({
@@ -88,7 +89,7 @@ function App() {
               </div>
               <div>
                 <Route exact path='/login' component={login} />
-                {/* <Route exact path='/register' component={register} /> */}
+                <Route exact path='/forgot-password' component={Forgot} />
               </div>
             </ThemeProvider>
           </Container>

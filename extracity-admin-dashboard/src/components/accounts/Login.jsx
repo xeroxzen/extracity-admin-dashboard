@@ -47,9 +47,9 @@ export default function Login() {
             </Button>
                     </Form>
                 </Card.Body>
-                <div className="w-100 text-center mt-2">
-                    Forgot password? <Link to="/reset-password">Click here</Link>
-                </div>
+                <p className="forgot-password w-100 text-center mt-2">
+                    Forgot password? <Link to="/forgot-password">Click here</Link>
+                </p>
             </Card>
         </>
     );
